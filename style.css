@@ -2043,19 +2043,18 @@ spline-viewer:active {
     }
 
     .stagger-stage {
-        height: 380px;
+        height: 430px;
         padding: 0.5rem 0 4.9rem;
         box-sizing: border-box;
     }
 
     .stagger-track {
-        height: 292px;
+        height: 342px;
         max-width: 100vw;
         overflow: visible;
     }
 
     .t-card {
-        max-width: calc(100vw - 64px);
         overflow: hidden;
     }
 
