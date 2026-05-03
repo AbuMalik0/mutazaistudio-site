@@ -352,15 +352,15 @@ document.addEventListener('DOMContentLoaded', () => {
         track.innerHTML = '';
         const total = testimonialsData.length;
         const compactSlider = window.innerWidth <= 700;
-        const gap = compactSlider ? Math.min(210, window.innerWidth * 0.62) : 305; // Stagger cards out like the reference slider
+        const gap = compactSlider ? Math.min(176, window.innerWidth * 0.5) : 305; // Stagger cards out like the reference slider
 
         // Each card position gets its own size & tilt for the staggered slide effect.
         const cardConfig = compactSlider ? {
-            '-2': { w: 272, y: -118, rot: -3.5 },
-            '-1': { w: 292, y: -132, rot: 2.2  },
-             '0': { w: 310, y: -165, rot: 0    },
-             '1': { w: 286, y: -124, rot: -2.4 },
-             '2': { w: 276, y: -116, rot: 3.4  }
+            '-2': { w: 230, y: -76, rot: -3.5 },
+            '-1': { w: 244, y: -86, rot: 2.2  },
+             '0': { w: 268, y: -98, rot: 0    },
+             '1': { w: 242, y: -82, rot: -2.4 },
+             '2': { w: 232, y: -74, rot: 3.4  }
         } : {
             '-2': { w: 380, y: -128, rot: -3.2 },
             '-1': { w: 405, y: -148, rot: 2.1  },
