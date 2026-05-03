@@ -1876,7 +1876,7 @@ spline-viewer:active {
     }
 
     .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: clamp(0.62rem, 3.2vw, 1rem);
+        --mobile-cube-unit: clamp(0.67rem, 3.45vw, 1.08rem);
         --mobile-cube-face: calc(var(--mobile-cube-unit) * 4);
         --mobile-cube-half: calc(var(--mobile-cube-unit) * 2);
         display: block;
