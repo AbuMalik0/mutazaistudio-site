@@ -286,14 +286,14 @@ body.mobile-menu-open {
 .cta-button {
     display: inline-block;
     padding: 0.88rem 2.15rem;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-soft));
+    background: var(--primary-color);
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--primary-glow);
+    box-shadow: none;
     font-family: inherit;
     border: none;
     cursor: pointer;
@@ -301,7 +301,7 @@ body.mobile-menu-open {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(255, 138, 0, 0.16);
+    box-shadow: none;
 }
 
 /* 3D Canvas Area */
@@ -461,7 +461,8 @@ spline-viewer:active {
 .services-section {
     padding: 5rem 3rem;
     background: #000000; /* Flat dark background for services */
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 3px solid var(--primary-color);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     position: relative;
     z-index: 1;
     scroll-margin-top: 96px;
@@ -594,7 +595,7 @@ spline-viewer:active {
     height: 85px; /* Match Navbar height */
     padding: 0 3rem;
     box-sizing: border-box;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 3px solid var(--primary-color);
     background: #000000; /* Solid black like navbar */
     z-index: 100;
 }
@@ -687,7 +688,8 @@ spline-viewer:active {
 .testimonials-section {
     padding: 5rem 0 4rem 0;
     background: #000000;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 3px solid var(--primary-color);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -805,7 +807,7 @@ spline-viewer:active {
 .t-card.is-center {
     background: var(--primary-color);
     border-color: var(--primary-soft);
-    box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
     z-index: 10;
     animation: featuredCardPulse 3.4s ease-in-out infinite;
 }
@@ -932,10 +934,10 @@ spline-viewer:active {
 
 @keyframes featuredCardPulse {
     0%, 100% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 0 rgba(255, 138, 0, 0);
+        box-shadow: none;
     }
     50% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 22px rgba(255, 138, 0, 0.14);
+        box-shadow: none;
     }
 }
 
@@ -957,7 +959,8 @@ spline-viewer:active {
     scroll-margin-top: 96px;
     padding: 6rem 3rem;
     background: #000000;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 3px solid var(--primary-color);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     overflow: hidden;
 }
 
@@ -1073,17 +1076,17 @@ spline-viewer:active {
     border-radius: 999px;
     padding: 1rem 1.5rem;
     color: #ffffff;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-soft));
+    background: var(--primary-color);
     font: inherit;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(255, 138, 0, 0.16);
+    box-shadow: none;
     transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
 .contact-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(255, 138, 0, 0.2);
+    box-shadow: none;
 }
 
 .contact-form-note {
@@ -1351,8 +1354,9 @@ spline-viewer:active {
         margin: 0 auto;
         padding: 0.68rem 1.25rem;
         font-size: 0.82rem;
-        background: var(--primary-color);
-        box-shadow: 0 5px 14px rgba(255, 138, 0, 0.16);
+        background: var(--primary-color) !important;
+        background-image: none !important;
+        box-shadow: none !important;
     }
     
     /* Hide Spline on mobile, show CSS Cubes */
@@ -1379,7 +1383,8 @@ spline-viewer:active {
     .services-section {
         padding: 3.25rem 1.1rem;
         scroll-margin-top: 88px;
-        border-top-color: rgba(255, 255, 255, 0.22);
+        border-top: 3px solid var(--primary-color);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
     }
 
     .services-header {
@@ -1387,12 +1392,12 @@ spline-viewer:active {
     }
 
     .services-badge {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         margin-bottom: 0.7rem;
     }
 
     [dir="rtl"] .services-badge {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .services-title {
@@ -1458,7 +1463,8 @@ spline-viewer:active {
     .contact-section {
         padding: 3.25rem 1.1rem;
         scroll-margin-top: 88px;
-        border-top-color: rgba(255, 255, 255, 0.22);
+        border-top: 3px solid var(--primary-color);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
     }
 
     .contact-header {
@@ -1466,7 +1472,7 @@ spline-viewer:active {
     }
 
     .contact-badge {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
     .contact-title {
@@ -1475,12 +1481,17 @@ spline-viewer:active {
     }
 
     .contact-desc {
-        font-size: clamp(0.72rem, 3vw, 0.82rem);
-        line-height: 1.75;
+        font-size: clamp(0.62rem, 2.55vw, 0.72rem);
+        line-height: 1.65;
         max-width: 19rem;
         margin-left: auto;
         margin-right: auto;
         white-space: normal;
+    }
+
+    [dir="rtl"] .contact-desc {
+        max-width: none;
+        white-space: nowrap;
     }
 
     .contact-form {
@@ -1508,8 +1519,9 @@ spline-viewer:active {
     .contact-submit {
         padding: 0.68rem 1.1rem;
         font-size: 0.82rem;
-        background: var(--primary-color);
-        box-shadow: 0 6px 16px rgba(255, 138, 0, 0.16);
+        background: var(--primary-color) !important;
+        background-image: none !important;
+        box-shadow: none !important;
     }
 
     .form-field:nth-child(4),
@@ -1563,7 +1575,8 @@ spline-viewer:active {
     .testimonials-section {
         padding: 3.25rem 0 3rem;
         scroll-margin-top: 88px;
-        border-top-color: rgba(255, 255, 255, 0.22);
+        border-top: 3px solid var(--primary-color);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.22);
     }
 
     .testimonials-header {
