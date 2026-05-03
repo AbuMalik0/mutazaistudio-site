@@ -1369,9 +1369,11 @@ spline-viewer:active {
         margin: 0 auto;
         padding: 0.76rem 1.35rem;
         font-size: 0.86rem;
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.28) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .ai-cube-assembly {
@@ -1674,9 +1676,11 @@ spline-viewer:active {
     .contact-submit {
         padding: 0.68rem 1.1rem;
         font-size: 0.82rem;
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .form-field:nth-child(4),
@@ -1780,10 +1784,26 @@ spline-viewer:active {
     }
 
     .t-card.is-center {
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
         border-color: rgba(255, 136, 0, 0.92) !important;
-        box-shadow: 0 1rem 2.4rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .t-card.is-center,
+    .t-card.is-center * {
+        color: #000000 !important;
+        text-shadow: none !important;
+    }
+
+    .t-card.is-center::before {
+        background: rgba(0, 0, 0, 0.24) !important;
+    }
+
+    .t-card.is-center::after {
+        color: rgba(0, 0, 0, 0.28) !important;
     }
 
     .t-card-quote {
@@ -1832,10 +1852,11 @@ spline-viewer:active {
         padding: 14px 22px;
         border-radius: 999px;
         font-weight: 600;
-        color: #FFFFFF !important;
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
         transform: translateZ(0) !important;
         isolation: isolate !important;
         -webkit-transform: translateZ(0) !important;
@@ -1845,28 +1866,40 @@ spline-viewer:active {
     .cta-button:active,
     .contact-submit:hover,
     .contact-submit:active {
-        color: #FFFFFF !important;
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.28) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .cta-button *,
     .contact-submit * {
-        color: #FFFFFF !important;
+        color: #000000 !important;
+        text-shadow: none !important;
     }
 
     .t-card.is-center {
-        color: #FFFFFF !important;
-        background: #FF8000 !important;
+        color: #000000 !important;
+        background: #F97316 !important;
         background-image: none !important;
         border-color: rgba(249, 115, 22, 0.92) !important;
-        box-shadow: 0 1rem 2.4rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .t-card.is-center,
     .t-card.is-center * {
-        color: #FFFFFF !important;
+        color: #000000 !important;
+        text-shadow: none !important;
+    }
+
+    .t-card.is-center::before {
+        background: rgba(0, 0, 0, 0.24) !important;
+    }
+
+    .t-card.is-center::after {
+        color: rgba(0, 0, 0, 0.28) !important;
     }
 
     .ai-cube,
