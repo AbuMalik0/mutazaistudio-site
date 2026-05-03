@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Mutaz AI Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --card: #0a0a0a;
+    --border: #222222;
+    --cyan: #FF5E00;
+    --purple: #FF5E00;
+    --magenta: #FF5E00;
+    --text: #e8eaf0;
+    --muted: #8899b0;
+    --soft: #c8d4e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 60px 24px;
+    line-height: 1.9;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; }
+
+  .doc-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .brand {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .meta { font-size: 21px; color: var(--muted); }
+
+  .intro-box {
+    background: rgba(255,94,0,0.05);
+    border: 1px solid rgba(255,94,0,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    font-size: 24px;
+    color: var(--soft);
+    line-height: 1.85;
+  }
+
+  .section { margin-bottom: 44px; }
+
+  .section-number {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p { font-size: 24px; color: var(--soft); margin-bottom: 12px; }
+
+  ul { list-style: none; margin: 12px 0; padding: 0; }
+
+  ul li {
+    font-size: 24px;
+    color: var(--soft);
+    padding: 7px 0 7px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  ul li:last-child { border-bottom: none; }
+
+  ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 20px;
+  }
+
+  .highlight {
+    background: rgba(255,94,0,0.06);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 17.5px;
+    color: var(--soft);
+  }
+
+  .warning {
+    background: rgba(255,45,120,0.06);
+    border-left: 3px solid var(--magenta);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 17.5px;
+    color: #ffb0c8;
+  }
+
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+
+  .toc h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+
+  .toc-item {
+    font-size: 21px;
+    color: var(--muted);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .toc-item span {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-right: 6px;
+    font-size: 19px;
+  }
+
+  .doc-footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .doc-footer p { font-size: 20px; color: var(--muted); margin: 0; }
+
+  strong { color: var(--text); font-weight: 700; }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 26px; }
+    body { padding: 32px 16px; }
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Controls -->
+<div class="top-controls">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+    <button class="lang-btn" onclick="toggleSubpageLang()">
+        <span class="lang-text">AR</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    </button>
+</div>
+<script>
+function toggleSubpageLang() {
+    const currentPath = window.location.pathname;
+    let isEn = currentPath.includes('-en.html');
+    let newPath = "";
+    if (isEn) {
+        newPath = currentPath.replace('-en.html', '.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-en.html', '-ar.html');
+    } else {
+        newPath = currentPath.replace('.html', '-en.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-ar.html', '-en.html');
+    }
+    localStorage.setItem('lang', isEn ? 'ar' : 'en');
+    window.location.href = newPath;
+}
+</script>
+<style>
+.top-controls {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+}
+.back-btn, .lang-btn {
+    color: #FF5E00;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,94,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.back-btn:hover {
+    transform: translateX( -5px);
+    background: rgba(255,94,0,0.1);
+}
+.lang-btn {
+    padding: 10px 15px;
+    justify-content: center;
+}
+.lang-btn:hover {
+    background: rgba(255,94,0,0.2);
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .top-controls {
+        top: 15px;
+        left: 15px;
+        gap: 8px;
+    }
+    .back-btn, .lang-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+</style>
+
+
+
+
+<div class="container">
+
+  <div class="doc-header">
+    <div class="brand">Mutaz AI Studio</div>
+    <h1>Terms & Conditions</h1>
+    <div class="meta">Effective Date: [DATE] &nbsp;·&nbsp; Last Updated: [DATE] &nbsp;·&nbsp; Kingdom of Saudi Arabia</div>
+  </div>
+
+  <div class="intro-box">
+    Please read these Terms and Conditions carefully before engaging our services. By signing a contract, completing a payment, or sending written confirmation (including via WhatsApp or email), you agree to be fully bound by these terms.
+  </div>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <div class="toc-grid">
+      <div class="toc-item"><span>01</span> Definitions</div>
+      <div class="toc-item"><span>02</span> Scope of Services</div>
+      <div class="toc-item"><span>03</span> Agreement & Acceptance</div>
+      <div class="toc-item"><span>04</span> Payment Terms</div>
+      <div class="toc-item"><span>05</span> Revisions & Modifications</div>
+      <div class="toc-item"><span>06</span> Timeline & Delivery</div>
+      <div class="toc-item"><span>07</span> Project Suspension & Termination</div>
+      <div class="toc-item"><span>08</span> Cancellation & Refund Policy</div>
+      <div class="toc-item"><span>09</span> Intellectual Property</div>
+      <div class="toc-item"><span>10</span> AI Disclaimer</div>
+      <div class="toc-item"><span>11</span> Third-Party Services</div>
+      <div class="toc-item"><span>12</span> Client Responsibilities</div>
+      <div class="toc-item"><span>13</span> Confidentiality</div>
+      <div class="toc-item"><span>14</span> Limitation of Liability</div>
+      <div class="toc-item"><span>15</span> No Guarantee of Results</div>
+      <div class="toc-item"><span>16</span> Prohibited Use</div>
+      <div class="toc-item"><span>17</span> Force Majeure</div>
+      <div class="toc-item"><span>18</span> Indemnification</div>
+      <div class="toc-item"><span>19</span> Severability</div>
+      <div class="toc-item"><span>20</span> Governing Law</div>
+      <div class="toc-item"><span>21</span> Changes to Terms</div>
+      <div class="toc-item"><span>22</span> Contact Us</div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2>Definitions</h2>
+    <p>For the purposes of these Terms and Conditions, the following terms shall have the meanings set forth below:</p>
+    <ul>
+      <li><strong>"Studio" or "we" / "us":</strong> Mutaz AI Studio, the entity providing the services</li>
+      <li><strong>"Client" or "you":</strong> Any individual or organization requesting or engaging our services</li>
+      <li><strong>"Services":</strong> All offerings including AI consulting, data analysis, dashboard development, social media management, and AI-powered content creation</li>
+      <li><strong>"Deliverables":</strong> Any materials, outputs, or files transferred to the client upon project completion</li>
+      <li><strong>"Project Agreement":</strong> The written document or correspondence defining the scope and details of each project</li>
+    </ul>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2>Scope of Services</h2>
+    <p>The scope of each project is defined in a separate Project Agreement or confirmed in writing before work begins. Any work outside the agreed scope is treated as a new request and quoted separately.</p>
+    <ul>
+      <li>No scope changes are implemented without written approval from both parties</li>
+      <li>Changes after project commencement may affect timeline and cost</li>
+      <li>We reserve the right to decline any project that conflicts with our values or capabilities</li>
+    </ul>
+    <div class="highlight">
+      Any change in project scope must be agreed upon in writing by both parties before implementation begins.
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2>Agreement & Acceptance</h2>
+    <p>Written confirmation received through any of the following channels constitutes a legally binding agreement:</p>
+    <ul>
+      <li>Email correspondence</li>
+      <li>WhatsApp or any messaging application</li>
+      <li>Social media platforms</li>
+      <li>Digital or physical signature on a Project Agreement</li>
+    </ul>
+    <div class="highlight">
+      Completing the initial payment also constitutes full implicit acceptance of these Terms and Conditions.
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2>Payment Terms</h2>
+    <p>All prices are quoted in <strong>Saudi Riyal (SAR)</strong> and are exclusive of VAT unless stated otherwise. VAT (15%) will be applied where required under Saudi law.</p>
+    <ul>
+      <li><strong>Initial Payment:</strong> [X]% of total project value is due before work begins</li>
+      <li><strong>Final Payment:</strong> Remaining balance is due before final deliverables are transferred</li>
+      <li><strong>Payment Methods:</strong> Mada, Visa, Mastercard, Apple Pay via secure payment link</li>
+      <li><strong>Due Date:</strong> Invoices are due within 3 business days of issuance</li>
+      <li><strong>Late Payment:</strong> We reserve the right to suspend work until full payment is received</li>
+    </ul>
+    <div class="warning">
+      Work will not commence until the initial payment is received. Final deliverables will not be transferred until full payment is confirmed.
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2>Revisions & Modifications</h2>
+    <p>Each project includes a defined number of revision rounds as specified in the Project Agreement. Default terms include:</p>
+    <ul>
+      <li>Two (2) rounds of revisions included at no extra cost</li>
+      <li>Additional revision rounds are billed at a fixed or hourly rate</li>
+      <li>Revision requests must be submitted within 7 days of delivery</li>
+      <li>All revision notes must be consolidated in a single message — separate requests count as separate rounds</li>
+    </ul>
+    <div class="highlight">
+      The project is considered finally approved after 7 days from delivery with no submitted feedback.
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2>Timeline & Delivery</h2>
+    <p>Timelines are estimated and communicated before work begins. Delays caused by the client (late feedback, missing assets, delayed approvals) may extend the delivery date without any liability to Mutaz AI Studio.</p>
+    <ul>
+      <li>Timelines begin from the date the initial payment is received</li>
+      <li>Rush projects may incur additional fees</li>
+      <li>We will notify the client promptly of any delays on our end</li>
+    </ul>
+  </div>
+
+  <!-- 07 -->
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2>Project Suspension & Termination</h2>
+    <p>Mutaz AI Studio reserves the right to take the following actions under the stated circumstances:</p>
+    <ul>
+      <li><strong>Suspension:</strong> If the client is unresponsive for more than 14 business days</li>
+      <li><strong>Termination:</strong> In the event of a material breach of any of these terms</li>
+      <li><strong>Rescheduling:</strong> Additional fees may apply when resuming a previously suspended project</li>
+    </ul>
+    <div class="warning">
+      If the client terminates the project after work has begun, no refund will be issued for completed work.
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="section">
+    <div class="section-number">08</div>
+    <h2>Cancellation & Refund Policy</h2>
+    <p>We understand that plans change. However, our time and resources are committed once a project begins.</p>
+    <ul>
+      <li><strong>Before work begins:</strong> Full refund of initial payment, minus any administrative fees</li>
+      <li><strong>After work begins:</strong> No refund on completed work; remaining balance may be adjusted based on progress</li>
+      <li><strong>After final delivery:</strong> No refunds on completed and approved deliverables</li>
+      <li><strong>Client delay over 14 days:</strong> We may cancel the project and retain the initial payment as compensation</li>
+    </ul>
+    <div class="warning">
+      No refunds are issued for dissatisfaction arising from information not provided at project start, or requests outside the agreed scope.
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="section">
+    <div class="section-number">09</div>
+    <h2>Intellectual Property</h2>
+    <p>Upon receipt of full payment, the client receives full ownership rights to the final deliverables, unless otherwise agreed in writing.</p>
+    <ul>
+      <li>Ownership remains with Mutaz AI Studio until full payment is received</li>
+      <li>We retain the right to showcase work in our portfolio unless the client requests confidentiality in writing</li>
+      <li>Third-party tools or templates used may carry their own licensing terms</li>
+      <li>AI-generated content is subject to the terms of the AI platform used</li>
+      <li>Deliverables may not be resold or redistributed as standalone products without prior written consent</li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <div class="section-number">10</div>
+    <h2>AI Disclaimer</h2>
+    <p>Some of our services rely on artificial intelligence tools to enhance quality and speed, with human oversight applied to ensure the highest possible accuracy. By engaging our services, the client acknowledges and agrees to the following:</p>
+    <ul>
+      <li>AI-generated outputs are probabilistic in nature and may contain errors or inaccuracies</li>
+      <li>We do not guarantee 100% accuracy for any AI-generated content, analysis, or recommendation</li>
+      <li>Output quality may be affected by the quality of data and information provided by the client</li>
+      <li>Business, financial, or legal decisions made based on our outputs are the sole responsibility of the client</li>
+      <li>We strongly recommend reviewing all outputs with qualified professionals before making critical decisions</li>
+    </ul>
+    <div class="warning">
+      Mutaz AI Studio is not liable for any losses or decisions resulting from sole reliance on AI-generated outputs without independent human review.
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <div class="section-number">11</div>
+    <h2>Third-Party Services</h2>
+    <p>We may rely on external tools and platforms in delivering our services. We are not responsible for:</p>
+    <ul>
+      <li>Outages or failures of third-party services</li>
+      <li>Changes to their policies or pricing</li>
+      <li>Any direct or indirect results arising from their use</li>
+    </ul>
+    <div class="highlight">
+      We will notify the client as soon as possible if any third-party change materially affects their project.
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="section">
+    <div class="section-number">12</div>
+    <h2>Client Responsibilities</h2>
+    <p>To ensure smooth delivery and best results, the client agrees to:</p>
+    <ul>
+      <li>Provide accurate, complete assets and information on time</li>
+      <li>Respond to questions and review requests within 3 business days</li>
+      <li>Designate a single point of contact for project communications</li>
+      <li>Ensure all provided content does not infringe any third-party rights</li>
+      <li>Provide required access credentials (accounts, API keys) in a timely manner</li>
+    </ul>
+  </div>
+
+  <!-- 13 -->
+  <div class="section">
+    <div class="section-number">13</div>
+    <h2>Confidentiality</h2>
+    <p>Both parties agree to keep confidential any sensitive business information shared during the engagement. We will not disclose your data, strategies, or business details to any third party without your explicit written consent.</p>
+    <div class="highlight">
+      This confidentiality obligation remains in effect for two (2) years following the completion or termination of the project.
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="section">
+    <div class="section-number">14</div>
+    <h2>Limitation of Liability</h2>
+    <p>Mutaz AI Studio is not liable for any indirect, incidental, or consequential damages arising from the use of our deliverables, including but not limited to:</p>
+    <ul>
+      <li>Loss of revenue or profits</li>
+      <li>Data loss or corruption</li>
+      <li>Business interruption</li>
+      <li>Damages from decisions made based on our outputs</li>
+    </ul>
+    <div class="warning">
+      In all cases, our total liability shall not exceed the total amount paid for the specific project in question.
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="section">
+    <div class="section-number">15</div>
+    <h2>No Guarantee of Results</h2>
+    <p>We deliver our services to the highest professional standards; however, we do not guarantee specific business outcomes, including:</p>
+    <ul>
+      <li>Increased sales or revenue</li>
+      <li>Audience growth or engagement</li>
+      <li>Improved business performance</li>
+      <li>Specific return on investment</li>
+    </ul>
+    <div class="highlight">
+      Results depend on multiple factors outside our control, including product quality, market conditions, and the client's implementation of recommendations.
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="section">
+    <div class="section-number">16</div>
+    <h2>Prohibited Use</h2>
+    <p>The client agrees not to use our services or deliverables for any of the following:</p>
+    <ul>
+      <li>Any illegal activity or activity that violates Saudi regulations</li>
+      <li>Creating misleading, fraudulent, or impersonating content</li>
+      <li>Infringing the intellectual property rights of any third party</li>
+      <li>Reselling or redistributing services without prior written permission</li>
+      <li>Any activity that harms the reputation or interests of Mutaz AI Studio</li>
+    </ul>
+    <div class="warning">
+      Any violation of these restrictions entitles us to immediately suspend services without refund and pursue appropriate legal remedies.
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="section">
+    <div class="section-number">17</div>
+    <h2>Force Majeure</h2>
+    <p>Mutaz AI Studio shall not be liable for delays or failures in service delivery caused by circumstances beyond our reasonable control, including:</p>
+    <ul>
+      <li>Outages or failures of external AI platform APIs</li>
+      <li>Server failures or internet infrastructure disruptions</li>
+      <li>Material changes to the policies of platforms we use</li>
+      <li>Natural disasters, pandemics, or other exceptional circumstances</li>
+      <li>Government or regulatory decisions affecting service delivery</li>
+    </ul>
+    <div class="highlight">
+      In such cases, we will notify the client promptly and work together in good faith to adjust timelines or find suitable alternatives.
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="section">
+    <div class="section-number">18</div>
+    <h2>Indemnification</h2>
+    <p>The client agrees to indemnify, defend, and hold harmless Mutaz AI Studio from any claims, damages, or legal liabilities arising from:</p>
+    <ul>
+      <li>Use of deliverables in a manner inconsistent with these terms</li>
+      <li>Providing inaccurate or misleading information at project start</li>
+      <li>Violation of any applicable laws or regulations</li>
+      <li>Infringement of third-party rights through the use of our deliverables</li>
+    </ul>
+  </div>
+
+  <!-- 19 -->
+  <div class="section">
+    <div class="section-number">19</div>
+    <h2>Severability</h2>
+    <p>If any provision of these Terms and Conditions is found to be invalid or unenforceable under applicable law, that provision shall be deemed severed from the rest of the agreement.</p>
+    <div class="highlight">
+      All remaining provisions shall continue in full force and effect, unaffected by the invalidity of any single clause.
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="section">
+    <div class="section-number">20</div>
+    <h2>Governing Law</h2>
+    <p>These Terms and Conditions are governed by the laws of the <strong>Kingdom of Saudi Arabia</strong>. Any disputes shall first be resolved through good-faith negotiation between both parties. If unresolved within 30 days, disputes shall be referred to the competent courts in the Kingdom of Saudi Arabia.</p>
+  </div>
+
+  <!-- 21 -->
+  <div class="section">
+    <div class="section-number">21</div>
+    <h2>Changes to These Terms</h2>
+    <p>We reserve the right to update these Terms and Conditions at any time. Changes will be posted on our website with an updated effective date. Continued engagement after any update constitutes implicit acceptance of the revised terms.</p>
+  </div>
+
+  <!-- 22 -->
+  <div class="section">
+    <div class="section-number">22</div>
+    <h2>Contact Us</h2>
+    <p>For any questions regarding these terms, please reach out:</p>
+    <ul>
+      <li><strong>Email:</strong> [YOUR EMAIL]</li>
+      <li><strong>WhatsApp:</strong> [YOUR NUMBER]</li>
+      <li><strong>Website:</strong> [YOUR WEBSITE]</li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <p>© 2025 Mutaz AI Studio. All rights reserved.</p>
+    <p>Last reviewed: <strong>[DATE]</strong></p>
+  </div>
+
+</div>
+</body>
+</html>

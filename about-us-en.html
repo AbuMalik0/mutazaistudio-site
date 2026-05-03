@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Mutaz AI Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --surface: #050505;
+    --card: #111111;
+    --border: #222222;
+    --cyan: #FF5E00;
+    --purple: #FF5E00;
+    --magenta: #FF5E00;
+    --gold: #FF5E00;
+    --text: #eaf0f8;
+    --muted: #506070;
+    --soft: #a8bdd0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 20%; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,94,0,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    border: 1px solid rgba(255,94,0,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(255,94,0,0.06);
+    margin-bottom: 32px;
+    width: fit-content;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 7vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeDown 0.8s 0.1s ease both;
+  }
+
+  .hero-title .line1 { display: block; color: var(--text); }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 21px;
+    color: var(--soft);
+    line-height: 1.9;
+    max-width: 620px;
+    margin-bottom: 48px;
+    animation: fadeDown 0.8s 0.2s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--cyan);
+    line-height: 1;
+  }
+
+  .stat-label { font-size: 20px; color: var(--muted); font-weight: 600; }
+
+  /* STORY */
+  .story { padding: 100px 0; position: relative; }
+
+  .story::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,94,0,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    color: var(--text);
+  }
+
+  .section-title span { color: var(--cyan); }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 32px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), var(--purple), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    padding-left: 32px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.6s ease;
+  }
+
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -7px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(255,94,0,0.4);
+  }
+
+  .timeline-year {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .timeline-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .timeline-content p { font-size: 24px; color: var(--soft); line-height: 1.8; }
+
+  /* PHILOSOPHY */
+  .philosophy { padding: 80px 0; }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .phil-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .phil-card:hover { border-color: rgba(255,94,0,0.3); transform: translateY(-4px); }
+
+  .phil-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 60px;
+    border-radius: 0 0 60px 0;
+    opacity: 0.08;
+  }
+
+  .phil-card:nth-child(1)::before { background: var(--cyan); }
+  .phil-card:nth-child(2)::before { background: var(--purple); }
+  .phil-card:nth-child(3)::before { background: var(--magenta); }
+  .phil-card:nth-child(4)::before { background: var(--gold); }
+
+  .phil-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+
+  .phil-card h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+  .phil-card p { font-size: 17.5px; color: var(--soft); line-height: 1.8; }
+
+  /* SERVICES */
+  .services { padding: 80px 0; }
+
+  .services-list { margin-top: 40px; display: flex; flex-direction: column; gap: 2px; }
+
+  .service-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-row:hover { background: var(--card); border-color: var(--border); }
+
+  .service-num { font-size: 19px; font-weight: 700; color: var(--muted); letter-spacing: 1px; min-width: 24px; }
+  .service-name { font-size: 20px; font-weight: 600; color: var(--text); flex: 1; }
+  .service-desc { font-size: 21px; color: var(--muted); }
+
+  .service-arrow { color: var(--cyan); font-size: 24px; opacity: 0; transition: opacity 0.3s; }
+  .service-row:hover .service-arrow { opacity: 1; }
+
+  /* CTA */
+  .cta-section { padding: 100px 0; text-align: center; position: relative; }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,94,0,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-section h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 900; margin-bottom: 16px; }
+  .cta-section p { font-size: 19px; color: var(--soft); margin-bottom: 40px; line-height: 1.8; }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,94,0,0.25); }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  @media (max-width: 640px) {
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .service-desc { display: none; }
+    .timeline { padding-left: 20px; }
+    .timeline-item { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Controls -->
+<div class="top-controls">
+    <a href="index.html" class="back-btn">← Back to Home</a>
+    <button class="lang-btn" onclick="toggleSubpageLang()">
+        <span class="lang-text">AR</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    </button>
+</div>
+<script>
+function toggleSubpageLang() {
+    const currentPath = window.location.pathname;
+    let isEn = currentPath.includes('-en.html');
+    let newPath = "";
+    if (isEn) {
+        newPath = currentPath.replace('-en.html', '.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-en.html', '-ar.html');
+    } else {
+        newPath = currentPath.replace('.html', '-en.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-ar.html', '-en.html');
+    }
+    localStorage.setItem('lang', isEn ? 'ar' : 'en');
+    window.location.href = newPath;
+}
+</script>
+<style>
+.top-controls {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+}
+.back-btn, .lang-btn {
+    color: #FF5E00;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,94,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.back-btn:hover {
+    transform: translateX( -5px);
+    background: rgba(255,94,0,0.1);
+}
+.lang-btn {
+    padding: 10px 15px;
+    justify-content: center;
+}
+.lang-btn:hover {
+    background: rgba(255,94,0,0.2);
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .top-controls {
+        top: 15px;
+        left: 15px;
+        gap: 8px;
+    }
+    .back-btn, .lang-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+</style>
+
+
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">About Us</div>
+    <h1 class="hero-title">
+      <span class="line1">We Turn Your Business Challenges</span>
+      <span class="line2">Into AI-Powered Solutions</span>
+    </h1>
+    <p class="hero-sub">
+      Mutaz AI Studio is more than a tech studio — we're a strategic partner that understands how businesses actually work, and translates cutting-edge AI capabilities into real, measurable results.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">AI</span>
+        <span class="stat-label">Specialized Consulting</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Custom Solutions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">🇸🇦</span>
+        <span class="stat-label">Based in Saudi Arabia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">From <span>Engineer</span> to AI Studio Founder</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">The Beginning</div>
+        <div class="timeline-content">
+          <h3>Civil Engineer in the Government Sector</h3>
+          <p>My career began as a civil engineer — working with numbers, equations, and large-scale projects. That world demanded precision, methodology, and analytical thinking. Those same skills became the foundation of everything I later built in AI.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">The Shift</div>
+        <div class="timeline-content">
+          <h3>Discovering the World of AI</h3>
+          <p>I embarked on an intensive self-learning journey — n8n, Claude, workflow automation, AI-powered content creation. The path wasn't easy, but every obstacle became a lesson, and every project became a step forward.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Today</div>
+        <div class="timeline-content">
+          <h3>Founding Mutaz AI Studio</h3>
+          <p>I combined engineering expertise with AI technology to build a studio that delivers real solutions for Saudi businesses — from data analytics to full automation — with a deep understanding of the local market and its unique needs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="container">
+    <div class="section-label">Our Philosophy</div>
+    <h2 class="section-title">Why <span>Mutaz AI Studio</span>?</h2>
+    <div class="philosophy-grid">
+      <div class="phil-card">
+        <span class="phil-icon">🎯</span>
+        <h3>Solutions, Not Just Tools</h3>
+        <p>We don't sell software — we understand your problem first, then build the right solution for it specifically, regardless of the tool required.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">⚡</span>
+        <h3>Measurable Results</h3>
+        <p>Every project has a clear, measurable goal — time saved, cost reduced, or revenue increased. If we can't measure it, we rethink it.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">🤝</span>
+        <h3>Partnership, Not Just Service</h3>
+        <p>We treat every client as a strategic partner — we understand your business, learn from your challenges, and build with you for the long term.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">🇸🇦</span>
+        <h3>Deep Local Understanding</h3>
+        <p>We understand the Saudi market — the language, culture, regulations, and business decision-making dynamics. That's what sets us apart.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our <span>Services</span></h2>
+    <div class="services-list">
+      <div class="service-row">
+        <span class="service-num">01</span>
+        <span class="service-name">AI Consulting</span>
+        <span class="service-desc">Diagnosis & custom solutions</span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">02</span>
+        <span class="service-name">Professional Data Analysis</span>
+        <span class="service-desc">Smart dashboards & reports</span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">03</span>
+        <span class="service-name">Workflow Automation</span>
+        <span class="service-desc">n8n & systems integration</span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">04</span>
+        <span class="service-name">Social Media Management</span>
+        <span class="service-desc">AI-powered content</span>
+        <span class="service-arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">05</span>
+        <span class="service-name">Visual Content Production</span>
+        <span class="service-desc">AI video & design</span>
+        <span class="service-arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Tell us about your challenge — and we'll work with you to find exactly the right solution.</p>
+    <a href="#contact" class="cta-btn">Get in Touch →</a>
+  </div>
+</section>
+
+<script>
+  const items = document.querySelectorAll('.timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 150);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الشروط والأحكام — Mutaz AI Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --card: #0a0a0a;
+    --border: #222222;
+    --cyan: #FF5E00;
+    --purple: #FF5E00;
+    --magenta: #FF5E00;
+    --text: #e8eaf0;
+    --muted: #8899b0;
+    --soft: #c8d4e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Cairo', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 60px 24px;
+    line-height: 1.9;
+  }
+
+  .container { max-width: 780px; margin: 0 auto; }
+
+  .doc-header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .brand {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .meta {
+    font-size: 21px;
+    color: var(--muted);
+  }
+
+  .intro-box {
+    background: rgba(255,94,0,0.05);
+    border: 1px solid rgba(255,94,0,0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    font-size: 24px;
+    color: var(--soft);
+    line-height: 1.85;
+  }
+
+  .section { margin-bottom: 44px; }
+
+  .section-number {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  p {
+    font-size: 24px;
+    color: var(--soft);
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+  }
+
+  ul li {
+    font-size: 24px;
+    color: var(--soft);
+    padding: 7px 22px 7px 0;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  ul li:last-child { border-bottom: none; }
+
+  ul li::before {
+    content: '←';
+    position: absolute;
+    right: 0;
+    color: var(--cyan);
+    font-size: 20px;
+  }
+
+  .highlight {
+    background: rgba(255,94,0,0.06);
+    border-right: 3px solid var(--purple);
+    border-radius: 8px 0 0 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 17.5px;
+    color: var(--soft);
+  }
+
+  .warning {
+    background: rgba(255,45,120,0.06);
+    border-right: 3px solid var(--magenta);
+    border-radius: 8px 0 0 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 17.5px;
+    color: #ffb0c8;
+  }
+
+  .doc-footer {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .doc-footer p { font-size: 20px; color: var(--muted); margin: 0; }
+
+  strong { color: var(--text); font-weight: 700; }
+
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 48px;
+  }
+
+  .toc h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+
+  .toc-item {
+    font-size: 21px;
+    color: var(--muted);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .toc-item span {
+    color: var(--cyan);
+    font-weight: 700;
+    margin-left: 6px;
+    font-size: 19px;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 26px; }
+    body { padding: 32px 16px; }
+    .toc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Controls -->
+<div class="top-controls">
+    <a href="index.html" class="back-btn">الرجوع للرئيسية →</a>
+    <button class="lang-btn" onclick="toggleSubpageLang()">
+        <span class="lang-text">EN</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    </button>
+</div>
+<script>
+function toggleSubpageLang() {
+    const currentPath = window.location.pathname;
+    let isEn = currentPath.includes('-en.html');
+    let newPath = "";
+    if (isEn) {
+        newPath = currentPath.replace('-en.html', '.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-en.html', '-ar.html');
+    } else {
+        newPath = currentPath.replace('.html', '-en.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-ar.html', '-en.html');
+    }
+    localStorage.setItem('lang', isEn ? 'ar' : 'en');
+    window.location.href = newPath;
+}
+</script>
+<style>
+.top-controls {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+}
+.back-btn, .lang-btn {
+    color: #FF5E00;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,94,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.back-btn:hover {
+    transform: translateX( 5px);
+    background: rgba(255,94,0,0.1);
+}
+.lang-btn {
+    padding: 10px 15px;
+    justify-content: center;
+}
+.lang-btn:hover {
+    background: rgba(255,94,0,0.2);
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .top-controls {
+        top: 15px;
+        right: 15px;
+        gap: 8px;
+    }
+    .back-btn, .lang-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+</style>
+
+
+
+
+<div class="container">
+
+  <div class="doc-header">
+    <div class="brand">Mutaz AI Studio</div>
+    <h1>الشروط والأحكام</h1>
+    <div class="meta">تاريخ السريان: [التاريخ] &nbsp;·&nbsp; آخر تحديث: [التاريخ] &nbsp;·&nbsp; المملكة العربية السعودية</div>
+  </div>
+
+  <div class="intro-box">
+    يُرجى قراءة هذه الشروط والأحكام بعناية قبل التعامل معنا. بمجرد توقيع العقد أو إتمام الدفع أو إرسال موافقة خطية (بما في ذلك عبر واتساب أو البريد الإلكتروني)، فإنك توافق على الالتزام بهذه الشروط كاملةً.
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <h3>فهرس البنود</h3>
+    <div class="toc-grid">
+      <div class="toc-item"><span>01</span> التعريفات</div>
+      <div class="toc-item"><span>02</span> نطاق الخدمات</div>
+      <div class="toc-item"><span>03</span> التعاقد والموافقة</div>
+      <div class="toc-item"><span>04</span> شروط الدفع</div>
+      <div class="toc-item"><span>05</span> التعديلات والمراجعات</div>
+      <div class="toc-item"><span>06</span> الجدول الزمني والتسليم</div>
+      <div class="toc-item"><span>07</span> تعليق أو إنهاء المشروع</div>
+      <div class="toc-item"><span>08</span> سياسة الإلغاء والاسترداد</div>
+      <div class="toc-item"><span>09</span> الملكية الفكرية</div>
+      <div class="toc-item"><span>10</span> إخلاء مسؤولية الذكاء الاصطناعي</div>
+      <div class="toc-item"><span>11</span> خدمات الطرف الثالث</div>
+      <div class="toc-item"><span>12</span> مسؤوليات العميل</div>
+      <div class="toc-item"><span>13</span> السرية وحماية المعلومات</div>
+      <div class="toc-item"><span>14</span> حدود المسؤولية</div>
+      <div class="toc-item"><span>15</span> عدم ضمان النتائج</div>
+      <div class="toc-item"><span>16</span> قيود الاستخدام</div>
+      <div class="toc-item"><span>17</span> القوة القاهرة</div>
+      <div class="toc-item"><span>18</span> التعويض</div>
+      <div class="toc-item"><span>19</span> قابلية الفصل</div>
+      <div class="toc-item"><span>20</span> القانون الحاكم</div>
+      <div class="toc-item"><span>21</span> التعديل على الشروط</div>
+      <div class="toc-item"><span>22</span> التواصل معنا</div>
+    </div>
+  </div>
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-number">01</div>
+    <h2>التعريفات</h2>
+    <p>لأغراض هذه الشروط والأحكام، تُفسَّر المصطلحات التالية على النحو الآتي:</p>
+    <ul>
+      <li><strong>"الاستوديو" أو "نحن":</strong> Mutaz AI Studio، الكيان المقدِّم للخدمات</li>
+      <li><strong>"العميل" أو "أنت":</strong> أي فرد أو جهة تطلب خدماتنا أو تتعامل معنا</li>
+      <li><strong>"الخدمات":</strong> جميع ما نقدمه من استشارات ذكاء اصطناعي، تحليل بيانات، تطوير لوحات تحكم، إدارة تواصل اجتماعي، وإنتاج محتوى</li>
+      <li><strong>"المخرجات":</strong> أي مواد أو نتائج أو ملفات يتم تسليمها للعميل</li>
+      <li><strong>"اتفاقية المشروع":</strong> الوثيقة أو المراسلة الخطية التي تحدد نطاق وتفاصيل كل مشروع</li>
+    </ul>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-number">02</div>
+    <h2>نطاق الخدمات</h2>
+    <p>يُحدَّد نطاق كل مشروع في اتفاقية مستقلة أو عبر موافقة خطية معتمدة قبل بدء العمل. أي عمل خارج النطاق المتفق عليه يُعامَل طلبًا جديدًا ويُسعَّر بشكل منفصل.</p>
+    <ul>
+      <li>لا يتم تنفيذ أي تعديل على النطاق دون موافقة مكتوبة من الطرفين</li>
+      <li>التغييرات على النطاق بعد بدء المشروع قد تؤثر على الجدول الزمني والتكلفة</li>
+      <li>نحتفظ بحق رفض أي مشروع لا يتوافق مع قيمنا أو سياساتنا</li>
+    </ul>
+    <div class="highlight">
+      أي تغيير في نطاق العمل يجب الاتفاق عليه خطيًا من قِبَل الطرفين قبل البدء في التنفيذ.
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-number">03</div>
+    <h2>التعاقد والموافقة</h2>
+    <p>تُعتبر أي موافقة خطية واردة عبر القنوات التالية موافقةً رسمية وملزمة قانونيًا:</p>
+    <ul>
+      <li>البريد الإلكتروني</li>
+      <li>واتساب أو أي تطبيق مراسلة</li>
+      <li>منصات التواصل الاجتماعي</li>
+      <li>توقيع رقمي أو ورقي على اتفاقية المشروع</li>
+    </ul>
+    <div class="highlight">
+      إتمام الدفعة الأولى يُعدّ أيضًا موافقة ضمنية كاملة على هذه الشروط والأحكام.
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-number">04</div>
+    <h2>شروط الدفع</h2>
+    <p>جميع الأسعار مقوَّمة بـ <strong>الريال السعودي (SAR)</strong> وغير شاملة لضريبة القيمة المضافة ما لم يُنص على خلاف ذلك. تُضاف ضريبة القيمة المضافة (15%) حيثما انطبق وفقًا للأنظمة السعودية.</p>
+    <ul>
+      <li><strong>الدفعة الأولى:</strong> [X]% من إجمالي قيمة المشروع تُسدَّد قبل بدء العمل</li>
+      <li><strong>الدفعة النهائية:</strong> المبلغ المتبقي يُسدَّد قبل تسليم المخرجات النهائية</li>
+      <li><strong>وسائل الدفع:</strong> مدى، فيزا، ماستركارد، أبل باي عبر رابط دفع آمن</li>
+      <li><strong>موعد السداد:</strong> الفواتير مستحقة خلال 3 أيام عمل من تاريخ الإصدار</li>
+      <li><strong>التأخر في الدفع:</strong> يحق لنا تعليق العمل حتى اكتمال السداد</li>
+    </ul>
+    <div class="warning">
+      لن يبدأ العمل إلا بعد استلام الدفعة الأولى. ولن تُسلَّم المخرجات النهائية إلا بعد تأكيد اكتمال الدفع الكامل.
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="section">
+    <div class="section-number">05</div>
+    <h2>التعديلات والمراجعات</h2>
+    <p>يتضمن كل مشروع عددًا محددًا من جولات المراجعة كما هو مُوضَّح في اتفاقية المشروع. الشروط الافتراضية:</p>
+    <ul>
+      <li>جولتان (2) من المراجعات مشمولتان بدون رسوم إضافية</li>
+      <li>جولات المراجعة الإضافية تُحسَب بسعر ثابت أو بالساعة</li>
+      <li>يجب طلب التعديلات خلال 7 أيام من تاريخ التسليم</li>
+      <li>تُجمَّع طلبات التعديل في رسالة واحدة — الطلبات المتفرقة تُحتسب جولات منفصلة</li>
+    </ul>
+    <div class="highlight">
+      يُعتبر المشروع معتمدًا نهائيًا بعد انتهاء مدة المراجعة (7 أيام) دون ورود أي ملاحظات.
+    </div>
+  </div>
+
+  <!-- 06 -->
+  <div class="section">
+    <div class="section-number">06</div>
+    <h2>الجدول الزمني والتسليم</h2>
+    <p>الجداول الزمنية تقديرية وتُبلَّغ قبل بدء العمل. التأخيرات الناجمة عن العميل (مثل: تأخر الملاحظات، أو الأصول المطلوبة، أو التأخر في الموافقة) قد تمدد موعد التسليم دون أي مسؤولية على Mutaz AI Studio.</p>
+    <ul>
+      <li>تبدأ الجداول الزمنية من تاريخ استلام الدفعة الأولى</li>
+      <li>المشاريع العاجلة قد تستلزم رسومًا إضافية</li>
+      <li>سنُخطر العميل فورًا في حال وقوع أي تأخير من جانبنا</li>
+    </ul>
+  </div>
+
+  <!-- 07 -->
+  <div class="section">
+    <div class="section-number">07</div>
+    <h2>تعليق أو إنهاء المشروع</h2>
+    <p>يحق لـ Mutaz AI Studio اتخاذ الإجراءات التالية في الحالات المذكورة:</p>
+    <ul>
+      <li><strong>التعليق:</strong> عند عدم تفاعل العميل لمدة تزيد عن 14 يوم عمل</li>
+      <li><strong>الإنهاء:</strong> في حال الإخلال الجوهري بأي من هذه الشروط</li>
+      <li><strong>إعادة الجدولة:</strong> قد تترتب عليها رسوم إضافية عند استئناف المشروع بعد التعليق</li>
+    </ul>
+    <div class="warning">
+      في حال إنهاء المشروع من قِبَل العميل بعد بدء التنفيذ، لا يُسترد ما دُفع عن العمل المنجز.
+    </div>
+  </div>
+
+  <!-- 08 -->
+  <div class="section">
+    <div class="section-number">08</div>
+    <h2>سياسة الإلغاء والاسترداد</h2>
+    <p>نتفهم أن الخطط قد تتغير، غير أن وقتنا ومواردنا تُخصَّص فور انطلاق المشروع.</p>
+    <ul>
+      <li><strong>قبل بدء العمل:</strong> استرداد كامل للدفعة الأولى مع خصم أي رسوم إدارية</li>
+      <li><strong>بعد بدء العمل:</strong> لا يُسترد ما تم إنجازه، وقد يُعدَّل المبلغ المتبقي بناءً على ما أُنجز</li>
+      <li><strong>بعد التسليم النهائي:</strong> لا يوجد استرداد على المخرجات المكتملة والموافق عليها</li>
+      <li><strong>تأخر العميل أكثر من 14 يومًا:</strong> يحق لنا إلغاء المشروع والاحتفاظ بالدفعة الأولى تعويضًا</li>
+    </ul>
+    <div class="warning">
+      لا يُسترد المبلغ في حال عدم الرضا الناتج عن معلومات لم تُقدَّم عند بدء المشروع، أو طلبات خارج النطاق المتفق عليه.
+    </div>
+  </div>
+
+  <!-- 09 -->
+  <div class="section">
+    <div class="section-number">09</div>
+    <h2>الملكية الفكرية</h2>
+    <p>عند استلام الدفع الكامل، يحصل العميل على حقوق الملكية الكاملة للمخرجات النهائية، ما لم يُتفق على خلاف ذلك خطيًا.</p>
+    <ul>
+      <li>تظل الملكية لدى Mutaz AI Studio حتى اكتمال الدفع بالكامل</li>
+      <li>نحتفظ بحق عرض الأعمال في معرضنا ما لم يطلب العميل السرية خطيًا</li>
+      <li>أدوات وقوالب الطرف الثالث المستخدمة قد تخضع لشروط ترخيص خاصة بها</li>
+      <li>المحتوى المولَّد بالذكاء الاصطناعي يخضع لشروط المنصة المستخدمة</li>
+      <li>لا يحق للعميل إعادة بيع المخرجات أو توزيعها بوصفها منتجًا مستقلًا دون اتفاق مسبق</li>
+    </ul>
+  </div>
+
+  <!-- 10 -->
+  <div class="section">
+    <div class="section-number">10</div>
+    <h2>إخلاء مسؤولية الذكاء الاصطناعي</h2>
+    <p>تعتمد بعض خدماتنا على أدوات وتقنيات الذكاء الاصطناعي لتعزيز جودة وسرعة المخرجات، مع إشراف بشري لضمان أعلى مستوى ممكن من الدقة. بالتعامل معنا، يُقرّ العميل ويوافق على ما يلي:</p>
+    <ul>
+      <li>المخرجات المولَّدة بالذكاء الاصطناعي ذات طابع احتمالي وقد تحتوي على أخطاء</li>
+      <li>لا نضمن دقة 100% لأي محتوى أو تحليل أو توصية مولَّدة بالذكاء الاصطناعي</li>
+      <li>قد تتأثر جودة النتائج بجودة البيانات والمعلومات التي يقدمها العميل</li>
+      <li>القرارات التجارية أو المالية أو القانونية المبنية على مخرجاتنا تقع على مسؤولية العميل</li>
+      <li>نوصي دائمًا بمراجعة المخرجات من قِبَل متخصصين قبل اتخاذ أي قرار حساس</li>
+    </ul>
+    <div class="warning">
+      Mutaz AI Studio غير مسؤول عن أي خسائر أو قرارات ناجمة عن الاعتماد الكلي على مخرجات الذكاء الاصطناعي دون مراجعة بشرية مستقلة.
+    </div>
+  </div>
+
+  <!-- 11 -->
+  <div class="section">
+    <div class="section-number">11</div>
+    <h2>خدمات الطرف الثالث</h2>
+    <p>قد نعتمد في تقديم خدماتنا على أدوات وخدمات خارجية مثل منصات الذكاء الاصطناعي وخدمات الاستضافة وغيرها. لا نتحمل المسؤولية عن:</p>
+    <ul>
+      <li>أعطال هذه الخدمات أو انقطاعها</li>
+      <li>تغييرات في سياساتها أو أسعارها</li>
+      <li>أي نتائج مباشرة أو غير مباشرة ناتجة عنها</li>
+    </ul>
+    <div class="highlight">
+      سنُخطر العميل في أقرب وقت ممكن في حال أثّر أي تغيير من طرف ثالث على مشروعه.
+    </div>
+  </div>
+
+  <!-- 12 -->
+  <div class="section">
+    <div class="section-number">12</div>
+    <h2>مسؤوليات العميل</h2>
+    <p>لضمان سير العمل بسلاسة وتحقيق أفضل النتائج، يلتزم العميل بما يلي:</p>
+    <ul>
+      <li>تقديم معلومات وأصول دقيقة وكاملة في الوقت المحدد</li>
+      <li>الرد على الاستفسارات وطلبات المراجعة خلال 3 أيام عمل</li>
+      <li>تحديد جهة تواصل واحدة لمتابعة المشروع</li>
+      <li>ضمان أن المحتوى المُقدَّم لا ينتهك حقوق أطراف ثالثة</li>
+      <li>تقديم بيانات الوصول المطلوبة (حسابات، API keys) في الوقت المناسب</li>
+    </ul>
+  </div>
+
+  <!-- 13 -->
+  <div class="section">
+    <div class="section-number">13</div>
+    <h2>السرية وحماية المعلومات</h2>
+    <p>يلتزم الطرفان بالحفاظ على سرية أي معلومات تجارية حساسة يتم تبادلها خلال مدة التعاون. لن نُفصح عن بياناتك أو استراتيجياتك أو تفاصيل أعمالك لأي طرف ثالث دون موافقتك الخطية المسبقة.</p>
+    <div class="highlight">
+      يستمر هذا الالتزام بالسرية لمدة سنتين بعد انتهاء المشروع أو الاتفاقية.
+    </div>
+  </div>
+
+  <!-- 14 -->
+  <div class="section">
+    <div class="section-number">14</div>
+    <h2>حدود المسؤولية</h2>
+    <p>لا يتحمل Mutaz AI Studio المسؤولية عن أي أضرار غير مباشرة أو عرضية أو تبعية ناجمة عن استخدام مخرجاتنا، بما في ذلك على سبيل المثال:</p>
+    <ul>
+      <li>خسارة الإيرادات أو الأرباح</li>
+      <li>فقدان البيانات أو المعلومات</li>
+      <li>تعطل الأعمال أو توقفها</li>
+      <li>أضرار ناجمة عن قرارات اتُّخذت بناءً على مخرجاتنا</li>
+    </ul>
+    <div class="warning">
+      في جميع الأحوال، لا تتجاوز مسؤوليتنا الإجمالية المبلغ الإجمالي المدفوع عن المشروع محل النزاع.
+    </div>
+  </div>
+
+  <!-- 15 -->
+  <div class="section">
+    <div class="section-number">15</div>
+    <h2>عدم ضمان النتائج</h2>
+    <p>نقدم خدماتنا وفق أعلى المعايير المهنية الممكنة، غير أننا لا نضمن تحقيق نتائج تجارية محددة، بما في ذلك:</p>
+    <ul>
+      <li>زيادة المبيعات أو الإيرادات</li>
+      <li>نمو الجمهور أو التفاعل</li>
+      <li>تحسين أداء الأعمال</li>
+      <li>تحقيق عوائد استثمارية معينة</li>
+    </ul>
+    <div class="highlight">
+      النتائج تعتمد على عوامل متعددة خارج نطاق سيطرتنا، منها: جودة المنتج، السوق، وتنفيذ العميل للتوصيات.
+    </div>
+  </div>
+
+  <!-- 16 -->
+  <div class="section">
+    <div class="section-number">16</div>
+    <h2>قيود الاستخدام</h2>
+    <p>يوافق العميل على عدم استخدام خدماتنا أو مخرجاتنا في أي مما يلي:</p>
+    <ul>
+      <li>أنشطة غير قانونية أو مخالفة للأنظمة السعودية</li>
+      <li>إنتاج محتوى مضلل أو احتيالي أو انتحال صفة جهات أخرى</li>
+      <li>انتهاك حقوق الملكية الفكرية لأي طرف ثالث</li>
+      <li>إعادة بيع الخدمات أو المخرجات دون إذن خطي مسبق</li>
+      <li>أي نشاط يُلحق ضررًا بسمعة Mutaz AI Studio أو مصالحه</li>
+    </ul>
+    <div class="warning">
+      أي انتهاك لهذه القيود يُخوّلنا إيقاف الخدمة فورًا دون استرداد، والمطالبة بالتعويض القانوني المناسب.
+    </div>
+  </div>
+
+  <!-- 17 -->
+  <div class="section">
+    <div class="section-number">17</div>
+    <h2>القوة القاهرة</h2>
+    <p>لا يتحمل Mutaz AI Studio أي مسؤولية عن التأخير أو الإخفاق في تنفيذ الخدمات الناجم عن أسباب خارجة عن إرادتنا، بما في ذلك:</p>
+    <ul>
+      <li>انقطاع أو تعطل واجهات برمجة التطبيقات (APIs) لمنصات الذكاء الاصطناعي الخارجية</li>
+      <li>تعطل الخوادم أو البنية التحتية للإنترنت</li>
+      <li>تغييرات جوهرية في سياسات المنصات المستخدمة</li>
+      <li>الكوارث الطبيعية أو الأوبئة أو أي ظروف استثنائية</li>
+      <li>قرارات حكومية أو تنظيمية تؤثر على سير الخدمات</li>
+    </ul>
+    <div class="highlight">
+      في حال وقوع أي من هذه الظروف، سنُخطر العميل فورًا ونسعى لإيجاد بديل مناسب أو تعديل الجدول الزمني بالتراضي.
+    </div>
+  </div>
+
+  <!-- 18 -->
+  <div class="section">
+    <div class="section-number">18</div>
+    <h2>التعويض</h2>
+    <p>يوافق العميل على تعويض Mutaz AI Studio والدفاع عنه وإبراء ذمته من أي مطالبات أو أضرار أو مسؤوليات قانونية ناتجة عن:</p>
+    <ul>
+      <li>استخدام المخرجات بطريقة مخالفة لهذه الشروط</li>
+      <li>تقديم معلومات غير صحيحة أو مضللة عند بدء المشروع</li>
+      <li>مخالفة أي أنظمة أو قوانين سارية</li>
+      <li>انتهاك حقوق طرف ثالث باستخدام مخرجاتنا</li>
+    </ul>
+  </div>
+
+  <!-- 19 -->
+  <div class="section">
+    <div class="section-number">19</div>
+    <h2>قابلية الفصل</h2>
+    <p>في حال ثبت بطلان أي بند من هذه الشروط أو عدم قابليته للتطبيق بموجب أي نظام سارٍ، يُعدّ ذلك البند منفصلًا عن باقي الشروط ولا يؤثر على صحة أو سريان البنود الأخرى.</p>
+    <div class="highlight">
+      تبقى باقي بنود هذه الشروط والأحكام سارية ونافذة بالكامل بصرف النظر عن بطلان أي بند منفرد.
+    </div>
+  </div>
+
+  <!-- 20 -->
+  <div class="section">
+    <div class="section-number">20</div>
+    <h2>القانون الحاكم</h2>
+    <p>تخضع هذه الشروط والأحكام لأنظمة <strong>المملكة العربية السعودية</strong>. تُحسم أي نزاعات أولًا عبر التفاوض بحسن نية بين الطرفين. وإن لم يُتوصَّل إلى حل خلال 30 يومًا، يُحال النزاع إلى المحاكم المختصة في المملكة العربية السعودية.</p>
+  </div>
+
+  <!-- 21 -->
+  <div class="section">
+    <div class="section-number">21</div>
+    <h2>التعديل على هذه الشروط</h2>
+    <p>نحتفظ بحق تحديث هذه الشروط والأحكام في أي وقت. سيُنشر أي تعديل على موقعنا مع تحديث تاريخ السريان. استمرار التعامل معنا بعد أي تعديل يُعدّ قبولًا ضمنيًا للشروط الجديدة.</p>
+  </div>
+
+  <!-- 22 -->
+  <div class="section">
+    <div class="section-number">22</div>
+    <h2>التواصل معنا</h2>
+    <p>لأي استفسار حول هذه الشروط، يُرجى التواصل معنا:</p>
+    <ul>
+      <li><strong>البريد الإلكتروني:</strong> [بريدك الإلكتروني]</li>
+      <li><strong>واتساب:</strong> [رقمك]</li>
+      <li><strong>الموقع الإلكتروني:</strong> [موقعك]</li>
+    </ul>
+  </div>
+
+  <div class="doc-footer">
+    <p>© 2025 Mutaz AI Studio. جميع الحقوق محفوظة.</p>
+    <p>آخر مراجعة: <strong>[التاريخ]</strong></p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>من نحن — Mutaz AI Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000000;
+    --surface: #050505;
+    --card: #111111;
+    --border: #222222;
+    --cyan: #FF5E00;
+    --purple: #FF5E00;
+    --magenta: #FF5E00;
+    --gold: #FF5E00;
+    --text: #eaf0f8;
+    --muted: #506070;
+    --soft: #a8bdd0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'Cairo', sans-serif;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── GRID BACKGROUND ── */
+  
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ══════════════════════════════════
+     HERO
+  ══════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,94,0,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--cyan);
+    text-transform: uppercase;
+    border: 1px solid rgba(255,94,0,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    background: rgba(255,94,0,0.06);
+    margin-bottom: 32px;
+    width: fit-content;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+
+  .hero-title {
+    font-size: clamp(36px, 7vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fadeDown 0.8s 0.1s ease both;
+  }
+
+  .hero-title .line1 { display: block; color: var(--text); }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(90deg, var(--cyan), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 21px;
+    color: var(--soft);
+    line-height: 1.9;
+    max-width: 600px;
+    margin-bottom: 48px;
+    animation: fadeDown 0.8s 0.2s ease both;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s 0.3s ease both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--cyan);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 20px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════
+     STORY
+  ══════════════════════════════════ */
+  .story {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .story::before {
+    content: '';
+    position: absolute;
+    top: 0; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,94,0,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .section-label {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--purple);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    color: var(--text);
+  }
+
+  .section-title span { color: var(--cyan); }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-right: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    right: 0; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--cyan), var(--purple), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 48px;
+    padding-right: 32px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+  }
+
+  .timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    right: -7px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(255,94,0,0.4);
+  }
+
+  .timeline-year {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .timeline-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .timeline-content p {
+    font-size: 24px;
+    color: var(--soft);
+    line-height: 1.8;
+  }
+
+  /* ══════════════════════════════════
+     PHILOSOPHY
+  ══════════════════════════════════ */
+  .philosophy {
+    padding: 80px 0;
+  }
+
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .phil-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .phil-card:hover {
+    border-color: rgba(255,94,0,0.3);
+    transform: translateY(-4px);
+  }
+
+  .phil-card::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    border-radius: 0 16px 0 60px;
+    opacity: 0.08;
+  }
+
+  .phil-card:nth-child(1)::before { background: var(--cyan); }
+  .phil-card:nth-child(2)::before { background: var(--purple); }
+  .phil-card:nth-child(3)::before { background: var(--magenta); }
+  .phil-card:nth-child(4)::before { background: var(--gold); }
+
+  .phil-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .phil-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .phil-card p {
+    font-size: 17.5px;
+    color: var(--soft);
+    line-height: 1.8;
+  }
+
+  /* ══════════════════════════════════
+     SERVICES
+  ══════════════════════════════════ */
+  .services {
+    padding: 80px 0;
+  }
+
+  .services-list {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .service-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-row:hover {
+    background: var(--card);
+    border-color: var(--border);
+  }
+
+  .service-num {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 1px;
+    min-width: 24px;
+  }
+
+  .service-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .service-desc {
+    font-size: 21px;
+    color: var(--muted);
+    text-align: left;
+  }
+
+  .service-arrow {
+    color: var(--cyan);
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-row:hover .service-arrow { opacity: 1; }
+
+  /* ══════════════════════════════════
+     CTA
+  ══════════════════════════════════ */
+  .cta-section {
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,94,0,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: var(--text);
+  }
+
+  .cta-section p {
+    font-size: 19px;
+    color: var(--soft);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    color: #000;
+    font-family: 'Cairo', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255,94,0,0.25);
+  }
+
+  /* ══════════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════════ */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 640px) {
+    .philosophy-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 24px; }
+    .service-desc { display: none; }
+    .timeline { padding-right: 20px; }
+    .timeline-item { padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top Controls -->
+<div class="top-controls">
+    <a href="index.html" class="back-btn">الرجوع للرئيسية →</a>
+    <button class="lang-btn" onclick="toggleSubpageLang()">
+        <span class="lang-text">EN</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+    </button>
+</div>
+<script>
+function toggleSubpageLang() {
+    const currentPath = window.location.pathname;
+    let isEn = currentPath.includes('-en.html');
+    let newPath = "";
+    if (isEn) {
+        newPath = currentPath.replace('-en.html', '.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-en.html', '-ar.html');
+    } else {
+        newPath = currentPath.replace('.html', '-en.html');
+        if (currentPath.includes('terms-final')) newPath = currentPath.replace('-ar.html', '-en.html');
+    }
+    localStorage.setItem('lang', isEn ? 'ar' : 'en');
+    window.location.href = newPath;
+}
+</script>
+<style>
+.top-controls {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+}
+.back-btn, .lang-btn {
+    color: #FF5E00;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,94,0,0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.back-btn:hover {
+    transform: translateX( 5px);
+    background: rgba(255,94,0,0.1);
+}
+.lang-btn {
+    padding: 10px 15px;
+    justify-content: center;
+}
+.lang-btn:hover {
+    background: rgba(255,94,0,0.2);
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .top-controls {
+        top: 15px;
+        right: 15px;
+        gap: 8px;
+    }
+    .back-btn, .lang-btn {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+}
+</style>
+
+
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">من نحن</div>
+    <h1 class="hero-title">
+      <span class="line1">نحوّل تحديات أعمالك</span>
+      <span class="line2">إلى حلول ذكاء اصطناعي</span>
+    </h1>
+    <p class="hero-sub">
+      Mutaz AI Studio ليس مجرد استوديو تقني — هو شريك استراتيجي يفهم واقع الأعمال ويترجم إمكانات الذكاء الاصطناعي إلى نتائج حقيقية وقابلة للقياس.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">AI</span>
+        <span class="stat-label">استشارات متخصصة</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">حلول مخصصة</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">🇸🇦</span>
+        <span class="stat-label">المملكة العربية السعودية</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="container">
+    <div class="section-label">القصة</div>
+    <h2 class="section-title">من <span>المهندس</span> إلى مؤسس الاستوديو</h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">البداية</div>
+        <div class="timeline-content">
+          <h3>مهندس مدني في القطاع الحكومي</h3>
+          <p>بدأت مسيرتي مهندساً مدنياً — أعمل بالأرقام والمعادلات والمشاريع الإنشائية. عالم يحتاج دقة ومنهجية وتفكيراً تحليلياً، وهي نفس المهارات التي حملتها معي لاحقاً إلى عالم الذكاء الاصطناعي.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">التحول</div>
+        <div class="timeline-content">
+          <h3>اكتشاف عالم الذكاء الاصطناعي</h3>
+          <p>بدأت رحلة تعلّم ذاتي مكثفة — n8n، Claude، أتمتة الأعمال، إنتاج المحتوى بالذكاء الاصطناعي. لم يكن الطريق سهلاً، لكن كل عقبة كانت درساً، وكل مشروع كان خطوة للأمام.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">اليوم</div>
+        <div class="timeline-content">
+          <h3>تأسيس Mutaz AI Studio</h3>
+          <p>جمعت بين خبرة الهندسة وتقنيات الذكاء الاصطناعي لأبني استوديو يقدم حلولاً حقيقية للأعمال السعودية — من تحليل البيانات إلى الأتمتة الكاملة، بفهم عميق لاحتياجات السوق المحلي.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="container">
+    <div class="section-label">فلسفتنا</div>
+    <h2 class="section-title">لماذا <span>Mutaz AI Studio</span>؟</h2>
+
+    <div class="philosophy-grid">
+      <div class="phil-card">
+        <span class="phil-icon">🎯</span>
+        <h3>حلول لا عروض</h3>
+        <p>لا نبيع أدوات — نفهم مشكلتك أولاً ثم نبني الحل المناسب لها تحديداً، بغض النظر عن الأداة.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">⚡</span>
+        <h3>نتائج قابلة للقياس</h3>
+        <p>كل مشروع له هدف واضح وقابل للقياس — وقت موفّر، تكلفة مخفضة، أو إيراد متزايد.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">🤝</span>
+        <h3>شراكة لا مجرد خدمة</h3>
+        <p>نتعامل مع كل عميل كشريك استراتيجي — نفهم أعماله، نتعلم من تحدياته، ونبني معه على المدى البعيد.</p>
+      </div>
+      <div class="phil-card">
+        <span class="phil-icon">🇸🇦</span>
+        <h3>فهم السوق المحلي</h3>
+        <p>نفهم البيئة السعودية — اللغة، الثقافة، الأنظمة، وطبيعة القرار التجاري. هذا ما يفرقنا.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <div class="container">
+    <div class="section-label">خدماتنا</div>
+    <h2 class="section-title">ماذا <span>نقدم</span>؟</h2>
+
+    <div class="services-list">
+      <div class="service-row">
+        <span class="service-num">01</span>
+        <span class="service-name">استشارات الذكاء الاصطناعي</span>
+        <span class="service-desc">تشخيص وحلول مخصصة</span>
+        <span class="service-arrow">←</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">02</span>
+        <span class="service-name">تحليل البيانات الاحترافي</span>
+        <span class="service-desc">لوحات تحكم وتقارير ذكية</span>
+        <span class="service-arrow">←</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">03</span>
+        <span class="service-name">أتمتة سير العمل</span>
+        <span class="service-desc">n8n وتكامل الأنظمة</span>
+        <span class="service-arrow">←</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">04</span>
+        <span class="service-name">إدارة حسابات التواصل الاجتماعي</span>
+        <span class="service-desc">محتوى مدعوم بالذكاء الاصطناعي</span>
+        <span class="service-arrow">←</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">05</span>
+        <span class="service-name">إنتاج المحتوى المرئي</span>
+        <span class="service-desc">فيديو وتصاميم بالذكاء الاصطناعي</span>
+        <span class="service-arrow">←</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>جاهز تبدأ مشروعك؟</h2>
+    <p>أخبرنا عن تحديك — وسنعمل معك على الحل المناسب تماماً.</p>
+    <a href="#contact" class="cta-btn">تواصل معنا ←</a>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for timeline animations
+  const items = document.querySelectorAll('.timeline-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 150);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  items.forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>

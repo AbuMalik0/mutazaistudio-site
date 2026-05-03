@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutaz AI Studio | The AI Solutions Agency</title>
+    <meta name="description" content="Redefining operational efficiency with AI agents.">
+    <link rel="stylesheet" href="style.css?v=33">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="bg-glow"></div>
+
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="brand-logo">
+                <img src="logo.png" alt="Mutaz AI Studio Logo" class="logo-img">
+            </div>
+            <span class="brand-name">Mutaz AI Studio</span>
+        </div>
+        
+        <div class="nav-center">
+            <a href="#home" class="nav-link" id="nav-home">HOME</a>
+            <a href="#services" class="nav-link" id="nav-services">SERVICES</a>
+            <a href="#testimonials" class="nav-link" id="nav-testimonials">TESTIMONIALS</a>
+            <a href="#contact" class="nav-link" id="nav-contact">CONTACT</a>
+        </div>
+
+        <div class="nav-right">
+            <button class="toggle-btn" id="lang-toggle">
+                <span class="lang-text">EN</span>
+                <i class="fa-solid fa-globe"></i>
+            </button>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <a href="#home" class="mobile-nav-link" data-nav-source="nav-home">HOME</a>
+            <a href="#services" class="mobile-nav-link" data-nav-source="nav-services">SERVICES</a>
+            <a href="#testimonials" class="mobile-nav-link" data-nav-source="nav-testimonials">TESTIMONIALS</a>
+            <a href="#contact" class="mobile-nav-link" data-nav-source="nav-contact">CONTACT</a>
+            <button class="mobile-lang-toggle" id="mobile-lang-toggle" type="button">
+                <span class="mobile-lang-text">EN</span>
+                <i class="fa-solid fa-globe"></i>
+            </button>
+        </div>
+    </div>
+
+    <main id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span class="status-text">Online & Active</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span>THE <span class="text-accent">AI</span></span>
+                <span class="text-accent">SOLUTIONS</span>
+                <span class="align-end">AGENCY</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Redefining operational efficiency. Our AI agents drastically reduce overhead and execution time, driving a measurable increase in precision while simultaneously maximizing output quality.
+            </p>
+            
+            <a href="#contact" class="cta-button" id="hero-cta">Book your free consultation</a>
+
+            <!-- Mobile visual (CSS Cubes) - Hidden on desktop -->
+            <div class="mobile-visual">
+                <div class="mobile-rubik-assembly" aria-hidden="true">
+                    <span class="mobile-rubik-cube px0 py0 pz0 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py0 pz0"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py0 pz0 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py1 pz0"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py1 pz0"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py1 pz0"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py2 pz0 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py2 pz0"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py2 pz0 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py0 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py0 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py0 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py1 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py1 pz1 core"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py1 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py2 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py2 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py2 pz1"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py0 pz2 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py0 pz2"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py0 pz2 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py1 pz2"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py1 pz2"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py1 pz2"><span></span></span>
+                    <span class="mobile-rubik-cube px0 py2 pz2 moving"><span></span></span>
+                    <span class="mobile-rubik-cube px1 py2 pz2"><span></span></span>
+                    <span class="mobile-rubik-cube px2 py2 pz2 moving"><span></span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <spline-viewer id="spline-viewer" url="https://prod.spline.design/VSpYq8XljqVxgRmg/scene.splinecode" loading-anim-type="none"></spline-viewer>
+        </div>
+    </main>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="services-container">
+            <div class="services-header animate-on-scroll">
+                <h2 class="services-badge" id="services-badge">Our Services</h2>
+                <p class="services-title" id="services-title">Everything you need to scale</p>
+                <p class="services-desc" id="services-desc">We leverage advanced AI to transform traditional workflows into high-performance digital engines.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv1-title">AI Video Production</h3>
+                            <p id="srv1-desc">Professional video production for products and brands — commercials, promotional content, and social media campaigns powered by AI.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0.1s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv2-title">AI Image & Product Photography</h3>
+                            <p id="srv2-desc">Transform your product visuals into studio-quality content — without a camera, without a set.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv3-title">AI Voiceover</h3>
+                            <p id="srv3-desc">Natural Arabic and English voiceovers with studio-grade quality — tailored to your brand's tone and audience.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0.3s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv4-title">Content Automation</h3>
+                            <p id="srv4-desc">Intelligent automation systems that produce, manage, and publish content at scale — consistently and efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0.4s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv5-title">Business Process Automation</h3>
+                            <p id="srv5-desc">Custom automation solutions that streamline your operations, reduce manual work, and scale your business.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="animate-wrapper animate-on-scroll" style="transition-delay: 0.5s;">
+                    <div class="service-item">
+                        <div class="service-icon-wrap">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3 id="srv6-title">Web & Digital Design</h3>
+                            <p id="srv6-desc">Modern websites and visual identities built to represent your brand at a global standard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="testimonials-header animate-on-scroll">
+            <p class="testimonials-badge" id="test-badge">CLIENT TESTIMONIALS</p>
+            <h2 class="testimonials-title" id="test-title">WHAT OUR CLIENTS SAY</h2>
+        </div>
+
+        <div class="stagger-stage animate-on-scroll testimonials-carousel-anim">
+            <div class="stagger-track" id="stagger-track"></div>
+            <div class="stagger-controls">
+                <button class="stagger-btn" id="btn-prev" aria-label="Previous">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="stagger-btn" id="btn-next" aria-label="Next">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-header animate-on-scroll">
+                <p class="contact-badge" id="contact-badge">Get in touch</p>
+                <h2 class="contact-title" id="contact-title">Book a free consultation</h2>
+                <p class="contact-desc" id="contact-desc">If you have any questions regarding our Services or need help, please fill out the form here. We do our best to respond within 1 business day.</p>
+            </div>
+
+            <div class="contact-layout">
+                <form class="contact-form animate-on-scroll" id="contact-form">
+                    <div class="form-field" style="transition-delay: 0.08s;">
+                        <label for="contact-name" id="contact-name-label">Full name</label>
+                        <input id="contact-name" type="text" name="name" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-field" style="transition-delay: 0.16s;">
+                        <label for="contact-email" id="contact-email-label">Email</label>
+                        <input id="contact-email" type="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-field" style="transition-delay: 0.24s;">
+                        <label for="contact-phone" id="contact-phone-label">Phone number</label>
+                        <input id="contact-phone" type="tel" name="phone" placeholder="+966 5X XXX XXXX">
+                    </div>
+
+                    <div class="form-field" style="transition-delay: 0.32s;">
+                        <label for="contact-message" id="contact-message-label">Message</label>
+                        <textarea id="contact-message" name="message" placeholder="What can we help you build?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="contact-submit" id="contact-submit" style="transition-delay: 0.4s;">Send message</button>
+                    <p class="contact-form-note" id="contact-form-note" style="transition-delay: 0.48s;">We’ll get back to you with the next step.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span class="social-title" id="social-title">Follow Us</span>
+            <div class="social-links">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/@MutazAIStudio" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@mutazaistudio" aria-label="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://x.com/MutazAIStudio" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/mutazaistudio/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                <div class="social-divider"></div>
+                <a href="https://wa.me/966530536631" aria-label="WhatsApp" class="wa-link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-center">
+            <span class="copyright" id="copyright">© 2026 Mutaz AI Studio. All rights reserved.</span>
+        </div>
+        
+        <div class="footer-right">
+            <div class="footer-links">
+                <a href="about-us.html" id="footer-about">About Us</a>
+                <a href="terms-final-ar.html" id="footer-terms">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js?v=23"></script>
+
+    <!-- Spline 3D Integration -->
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.96/build/spline-viewer.js"></script>
+    <script>
+        const viewer = document.getElementById('spline-viewer');
+        if (viewer) {
+            // Poll until shadow DOM is ready, then inject CSS to kill the watermark
+            const killWatermark = () => {
+                try {
+                    const shadow = viewer.shadowRoot;
+                    if (shadow) {
+                        if (!shadow.querySelector('#hide-brand')) {
+                            const style = document.createElement('style');
+                            style.id = 'hide-brand';
+                            style.textContent = `
+                                #logo, a[href*="spline"], [class*="watermark"],
+                                [class*="logo"], [id*="logo"], [class*="brand"] {
+                                    display: none !important;
+                                    opacity: 0 !important;
+                                    visibility: hidden !important;
+                                    pointer-events: none !important;
+                                }
+                            `;
+                            shadow.appendChild(style);
+                        }
+                    }
+                } catch(e) {}
+            };
+            // Run immediately and keep checking for a bit
+            const interval = setInterval(killWatermark, 300);
+            setTimeout(() => clearInterval(interval), 8000);
+            viewer.addEventListener('load', killWatermark);
+        }
+    </script>
+</body>
+</html>
