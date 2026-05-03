@@ -287,8 +287,8 @@ body.mobile-menu-open {
     display: inline-block;
     padding: 1rem 2.5rem;
     background: #FF8000;
-    color: #fff;
-    font-weight: 700;
+    color: #000000;
+    font-weight: 800;
     font-size: 1.1rem;
     text-decoration: none;
     border-radius: 50px;
@@ -304,6 +304,7 @@ body.mobile-menu-open {
 
 .cta-button:hover {
     transform: translateY(-2px);
+    color: #000000;
     box-shadow: 0 8px 25px rgba(255, 128, 0, 0.4);
 }
 
@@ -810,6 +811,7 @@ spline-viewer:active {
 
 .t-card.is-center {
     background: linear-gradient(135deg, var(--primary-color), #ff8800);
+    color: #000000;
     border-color: #ff8800;
     box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.08);
     z-index: 10;
@@ -825,8 +827,12 @@ spline-viewer:active {
     background: rgba(255, 255, 255, 0.35);
 }
 
+.t-card.is-center::before {
+    background: rgba(0, 0, 0, 0.24);
+}
+
 .t-card.is-center::after {
-    color: rgba(255, 255, 255, 0.42);
+    color: rgba(0, 0, 0, 0.28);
 }
 
 .t-card-num {
@@ -842,7 +848,8 @@ spline-viewer:active {
 }
 
 .t-card.is-center .t-card-num {
-    color: rgba(255,255,255,0.78);
+    color: #000000;
+    font-weight: 800;
 }
 
 [dir="rtl"] .t-card-num {
@@ -863,7 +870,7 @@ spline-viewer:active {
 }
 
 .t-card.is-center .t-card-quote {
-    color: #ffffff;
+    color: #000000;
     font-weight: 800;
     font-size: 1.12rem;
 }
@@ -889,7 +896,8 @@ spline-viewer:active {
 }
 
 .t-card.is-center .t-card-name {
-    color: #ffffff;
+    color: #000000;
+    font-weight: 800;
 }
 
 .t-card-role {
@@ -899,7 +907,8 @@ spline-viewer:active {
 }
 
 .t-card.is-center .t-card-role {
-    color: #ffffff;
+    color: #000000;
+    font-weight: 800;
 }
 
 .stagger-controls {
@@ -1083,7 +1092,7 @@ spline-viewer:active {
     border: none;
     border-radius: 999px;
     padding: 1rem 1.5rem;
-    color: #ffffff;
+    color: #000000;
     background: linear-gradient(135deg, var(--primary-color), #ff8800);
     font: inherit;
     font-weight: 800;
@@ -1094,6 +1103,7 @@ spline-viewer:active {
 
 .contact-submit:hover {
     transform: translateY(-2px);
+    color: #000000;
     box-shadow: 0 12px 32px rgba(255, 128, 0, 0.32);
 }
 
@@ -1851,7 +1861,7 @@ spline-viewer:active {
         min-height: 48px;
         padding: 14px 22px;
         border-radius: 999px;
-        font-weight: 600;
+        font-weight: 800;
         color: #000000 !important;
         background: #F97316 !important;
         background-image: none !important;
