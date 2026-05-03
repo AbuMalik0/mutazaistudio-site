@@ -3,9 +3,9 @@
     --bg-color: #000000;
     --text-color: #ffffff;
     --text-muted: #a0a0a0;
-    --primary-color: #ff7a1a; /* Brand orange */
-    --primary-soft: #ff9d2e;
-    --primary-glow: rgba(255, 122, 26, 0.08);
+    --primary-color: #ff8a00; /* Brand orange */
+    --primary-soft: #ffb13b;
+    --primary-glow: rgba(255, 138, 0, 0.08);
     --nav-bg: rgba(0, 0, 0, 0.8);
     --border-color: rgba(255, 255, 255, 0.1);
     --btn-hover: rgba(255, 255, 255, 0.05);
@@ -18,7 +18,7 @@
     --badge-glow-end: rgba(0, 255, 136, 0);
     
     --pattern-dot: rgba(255, 255, 255, 0.05);
-    --glow-center: rgba(255, 122, 26, 0.05);
+    --glow-center: rgba(255, 138, 0, 0.05);
     --glow-side: rgba(255, 255, 255, 0.015);
 }
 
@@ -31,6 +31,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 96px;
 }
 
 body {
@@ -71,9 +72,9 @@ body.mobile-menu-open {
     width: 100vw;
     height: 100vh;
     background:
-        /* Orange bloom — right side, where the 3D model sits */
-        radial-gradient(circle at 78% 50%, rgba(255, 122, 26, 0.05) 0%, transparent 50%),
-        /* Dark charcoal vignette — left side for depth */
+        /* Orange bloom â€” right side, where the 3D model sits */
+        radial-gradient(circle at 78% 50%, rgba(255, 138, 0, 0.05) 0%, transparent 50%),
+        /* Dark charcoal vignette â€” left side for depth */
         radial-gradient(circle at 15% 50%, rgba(30, 30, 30, 0.6) 0%, transparent 55%);
     z-index: -3;
     pointer-events: none;
@@ -300,7 +301,7 @@ body.mobile-menu-open {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(255, 122, 26, 0.16);
+    box-shadow: 0 7px 18px rgba(255, 138, 0, 0.16);
 }
 
 /* 3D Canvas Area */
@@ -363,7 +364,7 @@ spline-viewer:active {
     position: absolute;
     inset: 18%;
     transform: translate3d(0, 0, calc(0rem - var(--rubik-size) - var(--rubik-size)));
-    background: radial-gradient(circle, rgba(255, 122, 26, 0.14), transparent 68%);
+    background: radial-gradient(circle, rgba(255, 138, 0, 0.14), transparent 68%);
     filter: blur(16px);
 }
 
@@ -384,12 +385,12 @@ spline-viewer:active {
     background:
         linear-gradient(90deg, rgba(255, 224, 150, 0.5) 0 2px, transparent 2px calc(100% - 2px), rgba(102, 44, 8, 0.54) calc(100% - 2px)),
         linear-gradient(0deg, rgba(255, 224, 150, 0.46) 0 2px, transparent 2px calc(100% - 2px), rgba(102, 44, 8, 0.5) calc(100% - 2px)),
-        linear-gradient(135deg, #ffc169 0%, #ff8a1f 48%, #d85f11 100%);
+        linear-gradient(135deg, #ffc169 0%, #ff8a1f 48%, #ff8a00 100%);
     border: 1.5px solid rgba(255, 210, 128, 0.98);
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.14),
         inset 0 0 1.1rem rgba(255, 255, 255, 0.18),
-        0 0 0.65rem rgba(255, 122, 26, 0.12);
+        0 0 0.65rem rgba(255, 138, 0, 0.12);
 }
 
 .mobile-rubik-cube > span::before,
@@ -406,7 +407,7 @@ spline-viewer:active {
     transform: translateX(100%) rotateY(90deg);
     background:
         linear-gradient(90deg, rgba(255, 168, 68, 0.45) 0 2px, transparent 2px calc(100% - 2px), rgba(47, 21, 5, 0.58) calc(100% - 2px)),
-        linear-gradient(135deg, #c87520 0%, #5a310e 100%);
+        linear-gradient(135deg, #c98212 0%, #5a310e 100%);
 }
 
 .mobile-rubik-cube > span::after {
@@ -418,10 +419,10 @@ spline-viewer:active {
 }
 
 .mobile-rubik-cube.core > span {
-    background: linear-gradient(135deg, #ffcf7a 0%, #ff9d2e 52%, #e67218 100%);
+    background: linear-gradient(135deg, #ffcf7a 0%, #ff9d2e 52%, #ff8a00 100%);
     box-shadow:
         inset 0 0 1.25rem rgba(255, 255, 255, 0.22),
-        0 0 0.8rem rgba(255, 122, 26, 0.18);
+        0 0 0.8rem rgba(255, 138, 0, 0.18);
 }
 
 .mobile-rubik-cube.moving > span {
@@ -460,9 +461,10 @@ spline-viewer:active {
 .services-section {
     padding: 5rem 3rem;
     background: #000000; /* Flat dark background for services */
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
     z-index: 1;
+    scroll-margin-top: 96px;
 }
 
 .services-container {
@@ -542,7 +544,7 @@ spline-viewer:active {
     border: 1px solid #1a1a1c;
     border-radius: 16px;
     height: 100%;
-    min-height: 240px; /* Fixed height tall enough for longest Arabic card — equalizes all 6 */
+    min-height: 240px; /* Fixed height tall enough for longest Arabic card â€” equalizes all 6 */
     width: 100%;
     box-sizing: border-box;
     transition: transform 0.15s ease-out, border-color 0.15s ease-out, background-color 0.15s ease-out;
@@ -550,7 +552,7 @@ spline-viewer:active {
 
 .service-item:hover {
     background: #121214;
-    border-color: rgba(255, 122, 26, 0.32);
+    border-color: rgba(255, 138, 0, 0.32);
     transform: translateY(-5px);
 }
 
@@ -558,15 +560,15 @@ spline-viewer:active {
     flex-shrink: 0;
     width: 42px;
     height: 42px;
-    background: rgba(255, 122, 26, 0.08);
+    background: rgba(255, 138, 0, 0.08);
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--primary-color);
     font-size: 1.25rem;
-    border: 1px solid rgba(255, 122, 26, 0.16);
-    box-shadow: 0 3px 8px rgba(255, 122, 26, 0.04);
+    border: 1px solid rgba(255, 138, 0, 0.16);
+    box-shadow: 0 3px 8px rgba(255, 138, 0, 0.04);
 }
 
 .service-content h3 {
@@ -592,7 +594,7 @@ spline-viewer:active {
     height: 85px; /* Match Navbar height */
     padding: 0 3rem;
     box-sizing: border-box;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     background: #000000; /* Solid black like navbar */
     z-index: 100;
 }
@@ -685,10 +687,11 @@ spline-viewer:active {
 .testimonials-section {
     padding: 5rem 0 4rem 0;
     background: #000000;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     position: relative;
     z-index: 1;
     overflow: hidden;
+    scroll-margin-top: 96px;
 }
 
 .testimonials-header {
@@ -756,7 +759,7 @@ spline-viewer:active {
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #0d0d0f; /* Solid — same as services cards */
+    background: #0d0d0f; /* Solid â€” same as services cards */
     border: 1px solid #222224;
     border-radius: 0;
     padding: 3.5rem 2rem 2rem 2rem;
@@ -796,7 +799,7 @@ spline-viewer:active {
     font-size: 3.8rem;
     line-height: 1;
     font-weight: 800;
-    color: rgba(255, 122, 26, 0.34);
+    color: rgba(255, 138, 0, 0.34);
 }
 
 .t-card.is-center {
@@ -808,7 +811,7 @@ spline-viewer:active {
 }
 
 .t-card:not(.is-center):hover {
-    border-color: rgba(255, 122, 26, 0.32);
+    border-color: rgba(255, 138, 0, 0.32);
 }
 
 .t-card.is-center::before,
@@ -929,10 +932,10 @@ spline-viewer:active {
 
 @keyframes featuredCardPulse {
     0%, 100% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 0 rgba(255, 122, 26, 0);
+        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 0 rgba(255, 138, 0, 0);
     }
     50% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 22px rgba(255, 122, 26, 0.14);
+        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.05), 0 0 22px rgba(255, 138, 0, 0.14);
     }
 }
 
@@ -951,10 +954,10 @@ spline-viewer:active {
 /* ===================== Contact Section ===================== */
 .contact-section {
     position: relative;
-    scroll-margin-top: 85px;
+    scroll-margin-top: 96px;
     padding: 6rem 3rem;
     background: #000000;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
     overflow: hidden;
 }
 
@@ -1059,9 +1062,9 @@ spline-viewer:active {
 
 .form-field input:focus,
 .form-field textarea:focus {
-    border-color: rgba(255, 122, 26, 0.58);
+    border-color: rgba(255, 138, 0, 0.58);
     background: #0b0b0c;
-    box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.1);
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.1);
 }
 
 .contact-submit {
@@ -1074,13 +1077,13 @@ spline-viewer:active {
     font: inherit;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(255, 122, 26, 0.16);
+    box-shadow: 0 8px 24px rgba(255, 138, 0, 0.16);
     transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
 .contact-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(255, 122, 26, 0.2);
+    box-shadow: 0 12px 28px rgba(255, 138, 0, 0.2);
 }
 
 .contact-form-note {
@@ -1110,6 +1113,10 @@ spline-viewer:active {
 }
 
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 88px;
+    }
+
     .navbar {
         height: 72px;
         padding: 0 1.1rem;
@@ -1217,7 +1224,7 @@ spline-viewer:active {
         min-height: 100%;
         padding: 2rem 1.25rem;
         background:
-            radial-gradient(circle at 70% 18%, rgba(255, 122, 26, 0.1), transparent 34%),
+            radial-gradient(circle at 70% 18%, rgba(255, 138, 0, 0.1), transparent 34%),
             #050505;
         border-top: 1px solid var(--border-color);
         display: flex;
@@ -1247,7 +1254,7 @@ spline-viewer:active {
     .mobile-nav-link:hover,
     .mobile-nav-link:focus-visible {
         color: var(--primary-color);
-        border-bottom-color: rgba(255, 122, 26, 0.36);
+        border-bottom-color: rgba(255, 138, 0, 0.36);
         transform: translateY(-2px);
     }
 
@@ -1345,7 +1352,7 @@ spline-viewer:active {
         padding: 0.68rem 1.25rem;
         font-size: 0.82rem;
         background: var(--primary-color);
-        box-shadow: 0 5px 14px rgba(255, 122, 26, 0.16);
+        box-shadow: 0 5px 14px rgba(255, 138, 0, 0.16);
     }
     
     /* Hide Spline on mobile, show CSS Cubes */
@@ -1371,6 +1378,8 @@ spline-viewer:active {
 
     .services-section {
         padding: 3.25rem 1.1rem;
+        scroll-margin-top: 88px;
+        border-top-color: rgba(255, 255, 255, 0.22);
     }
 
     .services-header {
@@ -1378,26 +1387,26 @@ spline-viewer:active {
     }
 
     .services-badge {
-        font-size: 1rem;
+        font-size: 0.95rem;
         margin-bottom: 0.7rem;
     }
 
     [dir="rtl"] .services-badge {
-        font-size: 1.08rem;
+        font-size: 0.95rem;
     }
 
     .services-title {
-        font-size: 1.32rem;
+        font-size: 1.18rem;
         line-height: 1.25;
-        max-width: 19rem;
+        max-width: 18rem;
         margin: 0 auto 0.85rem;
     }
 
     .services-desc {
         font-size: clamp(0.7rem, 2.9vw, 0.82rem);
         line-height: 1.75;
-        max-width: none;
-        white-space: nowrap;
+        max-width: 19rem;
+        white-space: normal;
     }
 
     .services-grid {
@@ -1448,6 +1457,8 @@ spline-viewer:active {
 
     .contact-section {
         padding: 3.25rem 1.1rem;
+        scroll-margin-top: 88px;
+        border-top-color: rgba(255, 255, 255, 0.22);
     }
 
     .contact-header {
@@ -1455,7 +1466,7 @@ spline-viewer:active {
     }
 
     .contact-badge {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .contact-title {
@@ -1466,7 +1477,10 @@ spline-viewer:active {
     .contact-desc {
         font-size: clamp(0.72rem, 3vw, 0.82rem);
         line-height: 1.75;
-        white-space: nowrap;
+        max-width: 19rem;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: normal;
     }
 
     .contact-form {
@@ -1495,7 +1509,7 @@ spline-viewer:active {
         padding: 0.68rem 1.1rem;
         font-size: 0.82rem;
         background: var(--primary-color);
-        box-shadow: 0 6px 16px rgba(255, 122, 26, 0.16);
+        box-shadow: 0 6px 16px rgba(255, 138, 0, 0.16);
     }
 
     .form-field:nth-child(4),
@@ -1548,6 +1562,8 @@ spline-viewer:active {
 
     .testimonials-section {
         padding: 3.25rem 0 3rem;
+        scroll-margin-top: 88px;
+        border-top-color: rgba(255, 255, 255, 0.22);
     }
 
     .testimonials-header {
@@ -1556,7 +1572,7 @@ spline-viewer:active {
     }
 
     .testimonials-badge {
-        font-size: 1rem;
+        font-size: 0.95rem;
         margin-bottom: 0.75rem;
     }
 
