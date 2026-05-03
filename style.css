@@ -286,7 +286,7 @@ body.mobile-menu-open {
 .cta-button {
     display: inline-block;
     padding: 0.88rem 2.15rem;
-    background: var(--primary-color);
+    background: #ffb000;
     color: #fff;
     font-weight: 700;
     font-size: 1rem;
@@ -805,8 +805,8 @@ spline-viewer:active {
 }
 
 .t-card.is-center {
-    background: var(--primary-color);
-    border-color: var(--primary-soft);
+    background: #ffb000;
+    border-color: #ffc247;
     box-shadow: none;
     z-index: 10;
     animation: featuredCardPulse 3.4s ease-in-out infinite;
@@ -1354,7 +1354,7 @@ spline-viewer:active {
         margin: 0 auto;
         padding: 0.68rem 1.25rem;
         font-size: 0.82rem;
-        background: var(--primary-color) !important;
+        background: #ffb000 !important;
         background-image: none !important;
         box-shadow: none !important;
     }
