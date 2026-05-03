@@ -1830,8 +1830,9 @@ spline-viewer:active {
         border-radius: 999px;
         font-weight: 600;
         color: #FFFFFF !important;
-        background: #FF5E00 !important;
+        background: #FF7A00 !important;
         background-image: none !important;
+        box-shadow: 0 0.9rem 2rem rgba(255, 122, 0, 0.26) !important;
     }
 
     .cta-button:hover,
@@ -1839,8 +1840,9 @@ spline-viewer:active {
     .contact-submit:hover,
     .contact-submit:active {
         color: #FFFFFF !important;
-        background: #FF5E00 !important;
+        background: #FF7A00 !important;
         background-image: none !important;
+        box-shadow: 0 0.9rem 2rem rgba(255, 122, 0, 0.28) !important;
     }
 
     .cta-button *,
@@ -1850,9 +1852,10 @@ spline-viewer:active {
 
     .t-card.is-center {
         color: #FFFFFF !important;
-        background: #FF5E00 !important;
+        background: #FF7A00 !important;
         background-image: none !important;
         border-color: rgba(249, 115, 22, 0.92) !important;
+        box-shadow: 0 1rem 2.4rem rgba(255, 122, 0, 0.26) !important;
     }
 
     .t-card.is-center,
