@@ -1862,9 +1862,6 @@ spline-viewer:active {
         background-image: none !important;
         border-color: rgba(249, 115, 22, 0.92) !important;
         box-shadow: 0 1rem 2.4rem rgba(255, 128, 0, 0.26) !important;
-        transform: translateZ(0) !important;
-        isolation: isolate !important;
-        -webkit-transform: translateZ(0) !important;
     }
 
     .t-card.is-center,
