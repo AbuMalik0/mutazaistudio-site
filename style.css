@@ -32,6 +32,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 0;
 }
 
 body {
@@ -472,7 +473,7 @@ spline-viewer:active {
     border-top: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
-    scroll-margin-top: 110px;
+    scroll-margin-top: 85px;
 }
 
 .services-container {
@@ -698,7 +699,7 @@ spline-viewer:active {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    scroll-margin-top: 110px;
+    scroll-margin-top: 85px;
 }
 
 .testimonials-header {
@@ -974,7 +975,7 @@ spline-viewer:active {
 /* ===================== Contact Section ===================== */
 .contact-section {
     position: relative;
-    scroll-margin-top: 110px;
+    scroll-margin-top: 85px;
     padding: 6rem 3rem;
     background: #000000;
     border-top: 1px solid var(--border-color);
@@ -1141,7 +1142,7 @@ spline-viewer:active {
     }
 
     html {
-        scroll-padding-top: 88px;
+        scroll-padding-top: 0;
     }
 
     .navbar {
@@ -1535,7 +1536,7 @@ spline-viewer:active {
 
     .services-section {
         padding: 3.5rem 1.1rem;
-        scroll-margin-top: 88px;
+        scroll-margin-top: 72px;
         border-top: 1px solid rgba(255, 128, 0, 0.44);
         border-bottom: 1px solid rgba(255, 128, 0, 0.28);
         background:
@@ -1626,7 +1627,7 @@ spline-viewer:active {
 
     .contact-section {
         padding: 3.25rem 1.1rem;
-        scroll-margin-top: 88px;
+        scroll-margin-top: 72px;
         border-top: 1px solid rgba(255, 128, 0, 0.34);
         background:
             linear-gradient(180deg, rgba(255, 128, 0, 0.035), transparent 10rem),
@@ -1743,7 +1744,7 @@ spline-viewer:active {
 
     .testimonials-section {
         padding: 3.25rem 0 3rem;
-        scroll-margin-top: 88px;
+        scroll-margin-top: 72px;
         border-top: 1px solid rgba(255, 128, 0, 0.34);
         background:
             linear-gradient(180deg, rgba(255, 128, 0, 0.035), transparent 10rem),

@@ -135,6 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (event) => {
+            const targetId = link.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+
+            const target = document.querySelector(targetId);
+            if (!target) return;
+
+            event.preventDefault();
+            setMobileMenu(false);
+
+            const navbar = document.querySelector('.navbar');
+            const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+            const targetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+                top: Math.max(0, Math.round(targetTop)),
+                behavior: 'smooth'
+            });
+
+            history.pushState(null, '', targetId);
+        });
+    });
+
     const mobileLangToggle = document.getElementById('mobile-lang-toggle');
     if (mobileLangToggle) {
         mobileLangToggle.addEventListener('click', () => langToggleBtn.click());
