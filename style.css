@@ -1,4 +1,5 @@
 :root {
+    color-scheme: dark;
     /* Dark Theme (Default) */
     --bg-color: #000000;
     --text-color: #ffffff;
@@ -303,7 +304,7 @@ body.mobile-menu-open {
     box-shadow: 0 8px 25px rgba(255, 94, 0, 0.4);
 }
 
-.cta-cube-grid {
+.ai-cube-assembly {
     display: none;
 }
 
@@ -467,6 +468,7 @@ spline-viewer:active {
     border-top: 1px solid var(--border-color);
     position: relative;
     z-index: 1;
+    scroll-margin-top: 110px;
 }
 
 .services-container {
@@ -692,6 +694,7 @@ spline-viewer:active {
     position: relative;
     z-index: 1;
     overflow: hidden;
+    scroll-margin-top: 110px;
 }
 
 .testimonials-header {
@@ -944,8 +947,8 @@ spline-viewer:active {
         animation: none;
     }
 
-    .cta-cube-grid,
-    .cta-cube-grid span {
+    .ai-cube-assembly,
+    .ai-cube {
         animation: none;
     }
 
@@ -959,7 +962,7 @@ spline-viewer:active {
 /* ===================== Contact Section ===================== */
 .contact-section {
     position: relative;
-    scroll-margin-top: 85px;
+    scroll-margin-top: 110px;
     padding: 6rem 3rem;
     background: #000000;
     border-top: 1px solid var(--border-color);
@@ -1363,80 +1366,144 @@ spline-viewer:active {
         margin: 0 auto;
         padding: 0.76rem 1.35rem;
         font-size: 0.86rem;
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-soft)) !important;
-        box-shadow: 0 0.75rem 1.85rem rgba(255, 94, 0, 0.24) !important;
+        background: #ff5e00 !important;
+        background-image: none !important;
+        box-shadow: 0 0.9rem 2rem rgba(255, 94, 0, 0.28) !important;
     }
 
-    .cta-cube-grid {
-        --cube-size: clamp(1.1rem, 5.2vw, 1.55rem);
-        --cube-gap: 0.18rem;
-        --cube-depth: calc(var(--cube-size) * 0.86);
-        --cube-duration: 1.65s;
-        display: grid;
-        grid-template-columns: repeat(4, var(--cube-size));
-        gap: var(--cube-gap);
-        place-self: center;
-        margin: 2.15rem auto 0.25rem;
-        transform: rotateX(58deg) rotateZ(45deg);
-        transform-style: preserve-3d;
-        animation: ctaCubeOrbit 5.4s ease-in-out infinite;
-        filter: drop-shadow(0 1.4rem 1.8rem rgba(255, 94, 0, 0.24));
-    }
-
-    .cta-cube-grid span {
+    .ai-cube-assembly {
+        --cube-size: clamp(1.35rem, 6.8vw, 2rem);
+        --cube-step: calc(var(--cube-size) * 1.08);
+        --cube-half: calc(var(--cube-size) * 0.5);
+        --cube-duration: 2.15s;
+        display: block;
         position: relative;
-        display: grid;
-        aspect-ratio: 1;
-        transform-origin: 50% 50% calc(var(--cube-depth) * -1);
+        width: min(78vw, 19.5rem);
+        height: 10.5rem;
+        margin: 2.25rem auto 0.1rem;
         transform-style: preserve-3d;
-        background:
-            linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 221, 176, 0.88) 34%, #ff7a12 100%);
-        border: 1px solid rgba(255, 231, 198, 0.9);
-        animation: ctaCubeRise var(--cube-duration) ease-in-out infinite;
-        animation-delay: calc((3 - var(--j) + var(--i)) * 0.085s);
+        transform: rotateX(-45deg) rotateY(-45deg);
+        animation: aiAssemblyTurn var(--cube-duration) ease-in-out infinite;
+        filter:
+            drop-shadow(0 1.4rem 1.8rem rgba(255, 94, 0, 0.2))
+            drop-shadow(0 0 1.5rem rgba(255, 122, 26, 0.12));
+    }
+
+    .ai-cube {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--cube-size);
+        height: var(--cube-size);
+        margin: calc(var(--cube-half) * -1);
+        transform-style: preserve-3d;
+        transform: translate3d(
+            var(--tx),
+            var(--ty),
+            var(--tz)
+        );
+        animation: aiCubeBreathe var(--cube-duration) ease-in-out infinite;
+        animation-delay: var(--d);
+    }
+
+    .ai-cube.is-moving {
+        animation-name: aiCubePath;
+    }
+
+    .ai-cube,
+    .ai-cube::before,
+    .ai-cube::after {
+        background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 38%, #ff7a1a 100%);
+        border: 1px solid rgba(255, 231, 198, 0.78);
         box-shadow:
-            inset 0 0 0.65rem rgba(255, 255, 255, 0.24),
-            0 0 0.9rem rgba(255, 94, 0, 0.18);
+            inset 0 0 0.8rem rgba(255, 255, 255, 0.18),
+            0 0 0.75rem rgba(255, 94, 0, 0.1);
+        backface-visibility: hidden;
     }
 
-    .cta-cube-grid span::before,
-    .cta-cube-grid span::after {
+    .ai-cube::before,
+    .ai-cube::after {
         content: '';
-        grid-area: 1 / 1;
+        position: absolute;
+        inset: 0;
         transform-style: preserve-3d;
     }
 
-    .cta-cube-grid span::before {
-        transform-origin: 0 50%;
-        transform: translateX(100%) rotateY(90deg);
-        background:
-            linear-gradient(135deg, rgba(255, 154, 46, 0.98), rgba(126, 52, 4, 0.96));
-        border: 1px solid rgba(255, 133, 26, 0.52);
+    .ai-cube::before {
+        transform-origin: 100% 50%;
+        transform: rotateY(90deg) translateZ(var(--cube-half));
+        background: linear-gradient(135deg, #ff9a2f 0%, #ff5e00 62%, #23140d 100%);
     }
 
-    .cta-cube-grid span::after {
-        transform-origin: 50% 0;
-        transform: translateY(100%) rotateX(-90deg);
-        background:
-            linear-gradient(135deg, rgba(255, 188, 98, 0.98), rgba(255, 94, 0, 0.96));
-        border: 1px solid rgba(255, 174, 78, 0.6);
+    .ai-cube::after {
+        transform-origin: 50% 100%;
+        transform: rotateX(-90deg) translateZ(var(--cube-half));
+        background: linear-gradient(135deg, #ffffff 0%, #ffad59 42%, #ff6a0a 100%);
     }
 
-    @keyframes ctaCubeOrbit {
-        0%, 100% {
-            transform: rotateX(58deg) rotateZ(45deg) translateY(0);
+    @keyframes aiAssemblyTurn {
+        0%, 20% {
+            transform: rotateX(-45deg) rotateY(-45deg);
         }
         50% {
-            transform: rotateX(62deg) rotateZ(225deg) translateY(-0.25rem);
+            transform: rotateX(-45deg) rotateY(-45deg);
+        }
+        82%, 100% {
+            transform: rotateX(-45deg) rotateY(-225deg);
         }
     }
 
-    @keyframes ctaCubeRise {
-        0%, 55%, 100% {
-            transform: translateZ(0) scaleZ(0.08);
+    @keyframes aiCubeBreathe {
+        0%, 100% {
+            opacity: 0.92;
         }
-        28% {
-            transform: translateZ(calc(var(--cube-depth) * 0.72)) scaleZ(0.82);
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes aiCubePath {
+        0%, 5%, 95%, 100% {
+            transform: translate3d(
+                var(--tx),
+                var(--ty),
+                var(--tz)
+            );
+        }
+        18% {
+            transform: translate3d(
+                var(--tx),
+                calc(var(--ty) + var(--cube-step)),
+                var(--tz)
+            );
+        }
+        32% {
+            transform: translate3d(
+                var(--tx),
+                calc(var(--ty) + var(--cube-step)),
+                calc(var(--tz) + var(--cube-step))
+            );
+        }
+        48%, 62% {
+            transform: translate3d(
+                calc(var(--tx) + var(--cube-step)),
+                calc(var(--ty) + var(--cube-step)),
+                calc(var(--tz) + var(--cube-step))
+            );
+        }
+        76% {
+            transform: translate3d(
+                calc(var(--tx) + var(--cube-step)),
+                var(--ty),
+                calc(var(--tz) + var(--cube-step))
+            );
+        }
+        88% {
+            transform: translate3d(
+                calc(var(--tx) + var(--cube-step)),
+                var(--ty),
+                var(--tz)
+            );
         }
     }
     
@@ -1604,8 +1671,9 @@ spline-viewer:active {
     .contact-submit {
         padding: 0.68rem 1.1rem;
         font-size: 0.82rem;
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-soft)) !important;
-        box-shadow: 0 0.75rem 1.85rem rgba(255, 94, 0, 0.22) !important;
+        background: #ff5e00 !important;
+        background-image: none !important;
+        box-shadow: 0 0.9rem 2rem rgba(255, 94, 0, 0.26) !important;
     }
 
     .form-field:nth-child(4),
@@ -1709,9 +1777,10 @@ spline-viewer:active {
     }
 
     .t-card.is-center {
-        background: linear-gradient(135deg, var(--primary-color), var(--primary-soft)) !important;
+        background: #ff5e00 !important;
+        background-image: none !important;
         border-color: rgba(255, 136, 0, 0.92) !important;
-        box-shadow: 0 1rem 2.4rem rgba(255, 94, 0, 0.22) !important;
+        box-shadow: 0 1rem 2.4rem rgba(255, 94, 0, 0.26) !important;
     }
 
     .t-card-quote {
