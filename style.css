@@ -286,14 +286,15 @@ body.mobile-menu-open {
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background: #FF8000;
-    color: #fff;
+    background: #FF5E00;
+    color: #FFFFFF;
     font-weight: 700;
     font-size: 1.1rem;
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--primary-glow);
+    box-shadow: none;
+    text-shadow: none;
     font-family: inherit;
     border: none;
     cursor: pointer;
@@ -304,7 +305,9 @@ body.mobile-menu-open {
 
 .cta-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 128, 0, 0.4);
+    background: #FF5E00;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 .ai-cube-assembly {
@@ -773,8 +776,7 @@ spline-viewer:active {
     cursor: pointer;
     transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.15s ease,
-                background-color 0.15s ease,
-                box-shadow 0.15s ease;
+                background-color 0.15s ease;
     will-change: transform;
     box-sizing: border-box;
     clip-path: polygon(0 0, calc(100% - 56px) 0, 100% 56px, 100% 100%, 0 100%);
@@ -809,11 +811,13 @@ spline-viewer:active {
 }
 
 .t-card.is-center {
-    background: linear-gradient(135deg, var(--primary-color), #ff8800);
+    background: #FF5E00;
+    color: #FFFFFF;
     border-color: #ff8800;
-    box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    text-shadow: none;
     z-index: 10;
-    animation: featuredCardPulse 3.4s ease-in-out infinite;
+    animation: none;
 }
 
 .t-card:not(.is-center):hover {
@@ -931,18 +935,11 @@ spline-viewer:active {
 }
 
 .stagger-btn:hover {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: #FF5E00;
+    border-color: #FF5E00;
+    box-shadow: none;
+    text-shadow: none;
     transform: scale(1.06);
-}
-
-@keyframes featuredCardPulse {
-    0%, 100% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.08), 0 0 0 rgba(255, 128, 0, 0);
-    }
-    50% {
-        box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.08), 0 0 32px rgba(255, 128, 0, 0.24);
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1083,18 +1080,21 @@ spline-viewer:active {
     border: none;
     border-radius: 999px;
     padding: 1rem 1.5rem;
-    color: #ffffff;
-    background: linear-gradient(135deg, var(--primary-color), #ff8800);
+    color: #FFFFFF;
+    background: #FF5E00;
     font: inherit;
     font-weight: 800;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(255, 128, 0, 0.24);
-    transition: transform 0.16s ease, box-shadow 0.16s ease;
+    box-shadow: none;
+    text-shadow: none;
+    transition: transform 0.16s ease;
 }
 
 .contact-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(255, 128, 0, 0.32);
+    background: #FF5E00;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 .contact-form-note {
@@ -1201,7 +1201,7 @@ spline-viewer:active {
     .mobile-menu-toggle:hover span,
     .mobile-menu-toggle:focus-visible span,
     .mobile-menu-toggle.is-open span {
-        background: var(--primary-color);
+        background: #FF5E00;
     }
 
     .mobile-menu-toggle span:nth-child(2) {
@@ -1369,9 +1369,10 @@ spline-viewer:active {
         margin: 0 auto;
         padding: 0.76rem 1.35rem;
         font-size: 0.86rem;
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.28) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .ai-cube-assembly {
@@ -1674,9 +1675,10 @@ spline-viewer:active {
     .contact-submit {
         padding: 0.68rem 1.1rem;
         font-size: 0.82rem;
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .form-field:nth-child(4),
@@ -1780,10 +1782,11 @@ spline-viewer:active {
     }
 
     .t-card.is-center {
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
         border-color: rgba(255, 136, 0, 0.92) !important;
-        box-shadow: 0 1rem 2.4rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .t-card-quote {
@@ -1833,9 +1836,10 @@ spline-viewer:active {
         border-radius: 999px;
         font-weight: 600;
         color: #FFFFFF !important;
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
         transform: translateZ(0) !important;
         isolation: isolate !important;
         -webkit-transform: translateZ(0) !important;
@@ -1846,9 +1850,10 @@ spline-viewer:active {
     .contact-submit:hover,
     .contact-submit:active {
         color: #FFFFFF !important;
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
-        box-shadow: 0 0.9rem 2rem rgba(255, 128, 0, 0.28) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .cta-button *,
@@ -1858,10 +1863,11 @@ spline-viewer:active {
 
     .t-card.is-center {
         color: #FFFFFF !important;
-        background: #FF8000 !important;
+        background: #FF5E00 !important;
         background-image: none !important;
         border-color: rgba(249, 115, 22, 0.92) !important;
-        box-shadow: 0 1rem 2.4rem rgba(255, 128, 0, 0.26) !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
     }
 
     .t-card.is-center,
@@ -1983,11 +1989,7 @@ spline-viewer:active {
         margin: -2em;
         backface-visibility: hidden;
         background: #0d0d0d;
-        border: 1.5px solid rgba(255, 128, 0, 0.92);
-        box-shadow:
-            0 0 0.28rem rgba(255, 128, 0, 0.62),
-            0 0 0.72rem rgba(255, 128, 0, 0.28),
-            inset 0 0 0.5rem rgba(255, 100, 0, 0.12);
+        border: 1.5px solid #FF5E00;
     }
 
     .mobile-cube span:nth-child(1) { background: #111111; transform: rotateY(0deg) translateZ(2em); }
