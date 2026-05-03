@@ -2135,4 +2135,33 @@ spline-viewer:active {
     .stagger-controls {
         bottom: 1rem;
     }
+
+    .cta-button,
+    .cta-button:hover,
+    .cta-button:active,
+    .cta-button:focus-visible,
+    .contact-submit,
+    .contact-submit:hover,
+    .contact-submit:active,
+    .contact-submit:focus-visible,
+    .t-card.is-center {
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+    }
+
+    .t-card.is-center {
+        animation: none !important;
+    }
+
+    .mobile-cube-scene::after {
+        display: none !important;
+    }
+
+    .mobile-cube span {
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        filter: none !important;
+    }
 }
