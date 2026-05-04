@@ -279,6 +279,24 @@ body.mobile-menu-open {
     font-size: clamp(3rem, 6vw, 7rem);
 }
 
+@media (min-width: 769px) {
+    [dir="rtl"] .hero-title {
+        width: max-content;
+        max-width: 50vw;
+        font-size: clamp(2.4rem, 4.2vw, 5rem);
+        line-height: 1.25 !important;
+        letter-spacing: 0;
+    }
+
+    [dir="rtl"] .hero-title > span {
+        white-space: nowrap;
+    }
+
+    [dir="rtl"] .hero-title .text-accent {
+        font-size: inherit;
+    }
+}
+
 .hero-subtitle {
     font-size: clamp(0.95rem, 1.5vw, 1.2rem);
     line-height: 1.7;
