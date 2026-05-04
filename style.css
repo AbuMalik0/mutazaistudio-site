@@ -293,6 +293,31 @@ body.mobile-menu-open {
     margin-bottom: clamp(1.25rem, 3vh, 2rem);
 }
 
+[dir="rtl"] .hero-section {
+    text-align: right;
+}
+
+[dir="rtl"] .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+[dir="rtl"] .hero-title {
+    width: max-content;
+    max-width: none;
+    font-size: clamp(3.55rem, 5.8vw, 5.4rem);
+    line-height: 1.15 !important;
+}
+
+[dir="rtl"] .hero-title > span {
+    white-space: nowrap;
+}
+
+[dir="rtl"] .hero-subtitle {
+    max-width: 32rem;
+}
+
 /* CTA Button */
 .cta-button {
     display: inline-block;
@@ -339,17 +364,19 @@ body.mobile-menu-open {
 
 spline-viewer {
     display: block;
-    width: 168%;
-    height: 156%;
-    margin-top: -26%;
-    margin-left: -34%;
-    margin-right: -34%;
-    margin-bottom: -30%;
+    width: 176%;
+    height: 164%;
+    margin-top: -30%;
+    margin-left: -38%;
+    margin-right: -38%;
+    margin-bottom: -34%;
     outline: none;
     cursor: grab;
     background: transparent !important;
     mix-blend-mode: screen;
     isolation: isolate;
+    transform: translateX(0) scale(1.04);
+    transform-origin: center center;
 }
 
 spline-viewer:active {
@@ -357,26 +384,46 @@ spline-viewer:active {
 }
 
 @media (min-width: 1800px) {
-    .hero-section {
-        gap: 0;
-        padding-right: clamp(2rem, 4vw, 6rem);
+    spline-viewer {
+        width: 206%;
+        height: 192%;
+        margin-top: -44%;
+        margin-left: -56%;
+        margin-right: -48%;
+        margin-bottom: -50%;
+        transform: translateX(2%) scale(1.08);
     }
-
-    .hero-content {
-        flex: 0 1 43%;
-        max-width: 43%;
-    }
-
 }
 
 @media (min-width: 2400px) and (min-aspect-ratio: 16/9) {
-    .hero-content {
-        flex-basis: 40%;
-        max-width: 40%;
+    spline-viewer {
+        width: 232%;
+        height: 216%;
+        margin-top: -56%;
+        margin-left: -72%;
+        margin-right: -58%;
+        margin-bottom: -62%;
+        transform: translateX(3%) scale(1.12);
     }
 }
 
-/* --- CSS Cube Assembly --- */
+[dir="rtl"] spline-viewer {
+    transform: translateX(-8%) scale(1.04);
+}
+
+@media (min-width: 1800px) {
+    [dir="rtl"] spline-viewer {
+        transform: translateX(-10%) scale(1.08);
+    }
+}
+
+@media (min-width: 2400px) and (min-aspect-ratio: 16/9) {
+    [dir="rtl"] spline-viewer {
+        transform: translateX(-12%) scale(1.12);
+    }
+}
+
+/* --- Mobile CSS Cubes (Hidden on Desktop) --- */
 .mobile-visual {
     display: none; /* Hidden by default */
     width: 100%;
@@ -1549,6 +1596,14 @@ spline-viewer:active {
         perspective: 900px;
     }
 
+    [dir="rtl"] .hero-section {
+        text-align: center;
+    }
+
+    [dir="rtl"] .hero-content {
+        align-items: center;
+    }
+
     .hero-title {
         font-size: clamp(2.05rem, 9vw, 2.35rem);
         align-items: center;
@@ -1566,6 +1621,11 @@ spline-viewer:active {
         font-size: clamp(2rem, 8.8vw, 2.3rem);
         line-height: 1.2 !important;
         max-width: 21rem;
+        width: fit-content;
+    }
+
+    [dir="rtl"] .hero-title > span {
+        white-space: normal;
     }
 
     .hero-title > span {
@@ -1580,6 +1640,11 @@ spline-viewer:active {
         margin: 0 auto 1.45rem auto;
         font-size: 0.9rem;
         line-height: 1.75;
+        max-width: 19.5rem;
+        text-align: center;
+    }
+
+    [dir="rtl"] .hero-subtitle {
         max-width: 19.5rem;
         text-align: center;
     }
@@ -2449,6 +2514,7 @@ spline-viewer:active {
     }
 }
 
+@media (max-width: 1279px) {
     .hero-visual {
         display: none;
     }
@@ -2592,38 +2658,6 @@ spline-viewer:active {
         75% { transform: translate3d(4em, 0, 4em); }
         85% { transform: translate3d(4em, 0, 0); }
     }
-
-@media (min-width: 1280px) {
-    .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: clamp(1.55rem, 2.35vw, 2.65rem);
-    }
-
-    .mobile-hero-cube .mobile-cube-assembly {
-        top: 55%;
-        left: 72%;
-    }
-}
-
-@media (min-width: 1800px) {
-    .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: clamp(2rem, 2.55vw, 4.25rem);
-    }
-
-    .mobile-hero-cube .mobile-cube-assembly {
-        top: 55%;
-        left: 70%;
-    }
-}
-
-@media (min-width: 2400px) and (min-aspect-ratio: 16/9) {
-    .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: clamp(3.6rem, 2.55vw, 5.4rem);
-    }
-
-    .mobile-hero-cube .mobile-cube-assembly {
-        top: 54%;
-        left: 68%;
-    }
 }
 
 @media (max-width: 767px) {
@@ -2632,7 +2666,7 @@ spline-viewer:active {
     }
 
     .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: min(3.75vw, 1.9vh);
+        --mobile-cube-unit: min(4.35vw, 2.35vh);
         max-width: 100%;
         width: 100%;
         height: 100%;
@@ -2644,7 +2678,7 @@ spline-viewer:active {
     }
 
     .mobile-hero-cube .mobile-cube-assembly {
-        top: 94%;
+        top: 72%;
         left: 50%;
     }
 }
