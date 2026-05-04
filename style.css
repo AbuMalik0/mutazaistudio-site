@@ -322,13 +322,15 @@ body.mobile-menu-open {
     position: relative;
     max-width: 50%;
     width: 100%;
+    min-width: 50rem;
     min-height: 600px;
     overflow: hidden;
 }
 
 spline-viewer {
-    width: 100%;
+    width: 115%;
     height: 115%;
+    margin-right: -15%;
     margin-bottom: -15%;
     min-height: 600px;
     outline: none;
