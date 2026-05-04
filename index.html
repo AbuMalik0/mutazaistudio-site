@@ -6,7 +6,46 @@
     <title>Mutaz AI Studio | The AI Solutions Agency</title>
     <meta name="description" content="Redefining operational efficiency with AI agents.">
     <meta name="color-scheme" content="dark">
-    <link rel="stylesheet" href="style.css?v=56">
+    <link rel="stylesheet" href="style.css?v=62">
+    <style>
+        @media (max-width: 1279px), (hover: none) and (pointer: coarse) and (max-width: 1366px) {
+            .navbar {
+                position: static !important;
+                inset: auto !important;
+                top: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                background: #000000 !important;
+                box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+                transform: none !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            }
+
+            .hero-section {
+                margin-top: 0 !important;
+            }
+
+            .mobile-menu-toggle {
+                color: #FFFFFF !important;
+                stroke: #FFFFFF !important;
+            }
+
+            .mobile-menu-toggle span,
+            .mobile-menu-toggle:hover span,
+            .mobile-menu-toggle:focus-visible span,
+            .mobile-menu-toggle.is-open span {
+                background-color: #FFFFFF !important;
+            }
+
+            body.mobile-header-away .navbar {
+                display: none !important;
+            }
+        }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
@@ -296,6 +335,54 @@
 
 
 
+    <script>
+        (() => {
+            const applyMobileHeaderFix = () => {
+                const isMobileHeader = window.matchMedia('(max-width: 1279px), (hover: none) and (pointer: coarse) and (max-width: 1366px)').matches;
+                const navbar = document.querySelector('.navbar');
+                const hero = document.querySelector('.hero-section');
+
+                if (!navbar || !hero) return;
+
+                if (isMobileHeader) {
+                    navbar.style.setProperty('position', 'static', 'important');
+                    navbar.style.setProperty('inset', 'auto', 'important');
+                    navbar.style.setProperty('top', 'auto', 'important');
+                    navbar.style.setProperty('right', 'auto', 'important');
+                    navbar.style.setProperty('bottom', 'auto', 'important');
+                    navbar.style.setProperty('left', 'auto', 'important');
+                    navbar.style.setProperty('transform', 'none', 'important');
+                    hero.style.setProperty('margin-top', '0', 'important');
+                } else {
+                    navbar.style.removeProperty('position');
+                    navbar.style.removeProperty('inset');
+                    navbar.style.removeProperty('top');
+                    navbar.style.removeProperty('right');
+                    navbar.style.removeProperty('bottom');
+                    navbar.style.removeProperty('left');
+                    navbar.style.removeProperty('transform');
+                    hero.style.removeProperty('margin-top');
+                }
+            };
+
+            const updateMobileHeaderVisibility = () => {
+                const isMobileHeader = window.matchMedia('(max-width: 1279px), (hover: none) and (pointer: coarse) and (max-width: 1366px)').matches;
+                document.body.classList.toggle('mobile-header-away', isMobileHeader && window.scrollY > 8);
+            };
+
+            applyMobileHeaderFix();
+            updateMobileHeaderVisibility();
+            window.addEventListener('resize', () => {
+                applyMobileHeaderFix();
+                updateMobileHeaderVisibility();
+            }, { passive: true });
+            window.addEventListener('orientationchange', () => {
+                applyMobileHeaderFix();
+                updateMobileHeaderVisibility();
+            }, { passive: true });
+            window.addEventListener('scroll', updateMobileHeaderVisibility, { passive: true });
+        })();
+    </script>
     <script src="script.js?v=29"></script>
 
     <!-- Spline 3D Integration -->
