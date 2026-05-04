@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms & Conditions — Mutaz AI Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root {
@@ -58,8 +58,8 @@
   .meta { font-size: 21px; color: var(--muted); }
 
   .intro-box {
-    background: #0d0d0f;
-    border: 1px solid #242426;
+    background: rgba(255,138,0,0.05);
+    border: 1px solid rgba(255,138,0,0.18);
     border-radius: 12px;
     padding: 20px 24px;
     margin-bottom: 48px;
@@ -110,14 +110,14 @@
     width: 7px;
     height: 7px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.72);
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.06);
+    background: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(255,138,0,0.12);
   }
 
   .highlight {
-    background: #0d0d0f;
-    border: 1px solid #242426;
-    border-left: 3px solid rgba(255,255,255,0.18);
+    background: rgba(255,138,0,0.055);
+    border: 1px solid rgba(255,138,0,0.18);
+    border-left: 3px solid var(--purple);
     border-radius: 8px;
     padding: 14px 18px;
     margin: 16px 0;
@@ -126,14 +126,14 @@
   }
 
   .warning {
-    background: #0d0d0f;
-    border: 1px solid #2a2a2d;
-    border-left: 3px solid rgba(255,255,255,0.22);
+    background: rgba(255,45,80,0.06);
+    border: 1px solid rgba(255,45,80,0.2);
+    border-left: 3px solid #ff3b5f;
     border-radius: 8px;
     padding: 14px 18px;
     margin: 16px 0;
     font-size: 17.5px;
-    color: var(--soft);
+    color: #ffd7df;
   }
 
   .toc {
@@ -235,8 +235,8 @@ function toggleSubpageLang() {
     top: 0;
     left: 0;
     right: 0;
-    height: 84px;
-    padding: 0 3.5rem;
+    height: 85px;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -251,11 +251,14 @@ function toggleSubpageLang() {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
     font-weight: 900;
+    letter-spacing: 0.5px;
     white-space: nowrap;
 }
 .terms-brand img {
-    height: 48px;
+    height: 60px;
     width: auto;
     mix-blend-mode: screen;
 }
@@ -268,12 +271,27 @@ function toggleSubpageLang() {
 .terms-nav-links a {
     color: rgba(255,255,255,0.76);
     text-decoration: none;
-    font-weight: 800;
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    transition: color 0.2s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
 }
-.terms-nav-links a:hover { color: var(--cyan); }
+.terms-nav-links a:hover {
+    color: var(--text);
+    text-shadow: 0 0 1px var(--text);
+}
+.terms-nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--cyan);
+    transition: width 0.3s ease;
+}
+.terms-nav-links a:hover::after { width: 100%; }
 .lang-btn {
     color: #ffffff;
     font-family: inherit;
@@ -289,10 +307,10 @@ function toggleSubpageLang() {
 }
 .lang-btn:hover {
     background: rgba(255,255,255,0.08);
-    transform: scale(1.05);
+    border-color: var(--text);
 }
 .terms-footer {
-    min-height: 88px;
+    min-height: 85px;
     margin: 64px -24px 0;
     padding: 1.2rem 3.5rem;
     background: #000000;
@@ -317,6 +335,7 @@ function toggleSubpageLang() {
 .terms-social a {
     color: rgba(255,255,255,0.78);
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 .terms-social .wa-link { color: #25D366; }
 .terms-footer-links {
@@ -325,7 +344,14 @@ function toggleSubpageLang() {
     gap: 1.5rem;
 }
 .terms-footer-links a:hover,
-.terms-social a:hover { color: #ffffff; }
+.terms-social a:hover { color: var(--cyan); }
+.terms-social a:hover { transform: translateY(-3px); }
+.terms-social .wa-link:hover {
+    color: #1ebe5d;
+    transform: translateY(-3px) scale(1.1);
+}
+.terms-footer-links a { transition: color 0.3s ease; }
+.terms-footer-links a:hover { color: var(--text); }
 @media (max-width: 768px) {
     .terms-navbar {
         height: 72px;
@@ -334,7 +360,7 @@ function toggleSubpageLang() {
     }
     .terms-nav-links { display: none; }
     .terms-brand span { font-size: 0.95rem; }
-    .terms-brand img { height: 42px; }
+    .terms-brand img { height: 46px; }
     .lang-btn {
         font-size: 13px;
         padding: 8px 14px;

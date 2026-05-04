@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAr = lang === 'ar';
 
         // Button label
-        langTextEl.textContent = isAr ? 'AR' : 'EN';
-        if (mobileLangText) mobileLangText.textContent = isAr ? 'AR' : 'EN';
+        langTextEl.textContent = isAr ? 'EN' : 'AR';
+        if (mobileLangText) mobileLangText.textContent = isAr ? 'EN' : 'AR';
 
         // Document direction & lang
         htmlElement.setAttribute('lang', lang);
