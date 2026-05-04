@@ -205,9 +205,10 @@ body.mobile-menu-open {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5rem;
+    box-sizing: border-box;
+    padding: clamp(1rem, 2.4vh, 2rem) 5rem clamp(3.5rem, 8vh, 6rem);
     margin-top: 80px; /* offset navbar */
-    min-height: calc(100vh - 160px);
+    min-height: calc(100svh - 80px);
     gap: 2rem;
 }
 
@@ -224,7 +225,7 @@ body.mobile-menu-open {
     border: 1px solid var(--badge-border);
     padding: 6px 12px;
     border-radius: 20px;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(0.85rem, 2.4vh, 2rem);
 }
 
 .status-dot {
@@ -255,10 +256,10 @@ body.mobile-menu-open {
     flex-direction: column;
     width: fit-content;
     font-family: 'Outfit', sans-serif;
-    font-size: 6.5rem;
+    font-size: clamp(4.15rem, 10.4vh, 6.5rem);
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    line-height: 1.04;
+    margin-bottom: clamp(0.9rem, 2.2vh, 1.5rem);
     background: linear-gradient(135deg, var(--text-color) 0%, var(--text-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -276,21 +277,21 @@ body.mobile-menu-open {
 }
 
 .hero-subtitle {
-    font-size: 1.55rem; /* Increased size slightly */
-    line-height: 1.7;
+    font-size: clamp(1.05rem, 2.25vh, 1.55rem); /* Increased size slightly */
+    line-height: 1.62;
     color: var(--text-muted);
     max-width: 95%;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.25rem, 3vh, 2rem);
 }
 
 /* CTA Button */
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: clamp(0.82rem, 1.7vh, 1rem) clamp(1.9rem, 4vh, 2.5rem);
     background: #FF8000;
     color: #000000;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: clamp(0.96rem, 1.75vh, 1.1rem);
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
@@ -329,12 +330,12 @@ body.mobile-menu-open {
 
 spline-viewer {
     display: block;
-    width: 140%;
-    height: 130%;
-    margin-top: -15%;
-    margin-left: -20%;
-    margin-right: -20%;
-    margin-bottom: -15%;
+    width: 168%;
+    height: 156%;
+    margin-top: -26%;
+    margin-left: -34%;
+    margin-right: -34%;
+    margin-bottom: -30%;
     outline: none;
     cursor: grab;
     background: transparent !important;
@@ -2221,8 +2222,8 @@ spline-viewer:active {
 
     .mobile-hero-cube .mobile-cube-assembly {
         position: absolute;
-        top: 58%;
-        left: 72%;
+        top: 56%;
+        left: 78%;
         font-size: var(--mobile-cube-unit);
         transform-style: preserve-3d;
         transform: rotateX(-34deg) rotateY(-45deg);
@@ -2319,6 +2320,10 @@ spline-viewer:active {
 }
 
 @media (max-width: 767px) {
+    .hero-section {
+        padding-bottom: clamp(3rem, 8vh, 5rem);
+    }
+
     .mobile-hero-cube.ai-cube-assembly {
         --mobile-cube-unit: min(4.35vw, 2.35vh);
         max-width: 100%;
