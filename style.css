@@ -255,7 +255,7 @@ body.mobile-menu-open {
     flex-direction: column;
     width: fit-content;
     font-family: 'Outfit', sans-serif;
-    font-size: 6.5rem;
+    font-size: clamp(2.5rem, 5vw, 6rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -275,8 +275,12 @@ body.mobile-menu-open {
     -webkit-text-fill-color: var(--primary-color);
 }
 
+.hero-title .text-accent {
+    font-size: clamp(3rem, 6vw, 7rem);
+}
+
 .hero-subtitle {
-    font-size: 1.55rem; /* Increased size slightly */
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
     line-height: 1.7;
     color: var(--text-muted);
     max-width: 95%;
@@ -290,7 +294,7 @@ body.mobile-menu-open {
     background: #FF8000;
     color: #000000;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
     text-decoration: none;
     border-radius: 50px;
     transition: all 0.3s ease;
