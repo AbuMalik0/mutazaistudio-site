@@ -315,23 +315,25 @@ body.mobile-menu-open {
 
 /* 3D Canvas Area */
 .hero-visual {
-    flex: 1;
+    flex: 1.25 1 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    max-width: 50%;
+    max-width: 58%;
     width: 100%;
-    height: min(82vh, 52vw);
-    min-height: 58vh;
+    height: min(92vh, 58vw);
+    min-height: 64vh;
     overflow: hidden;
 }
 
 spline-viewer {
     display: block;
-    width: 115%;
-    height: 115%;
-    margin-left: -7.5%;
+    width: 140%;
+    height: 130%;
+    margin-top: -15%;
+    margin-left: -20%;
+    margin-right: -20%;
     margin-bottom: -15%;
     outline: none;
     cursor: grab;
@@ -2179,19 +2181,24 @@ spline-viewer:active {
         display: none !important;
     }
 
+    .hero-content {
+        position: relative;
+        z-index: 10;
+    }
+
     .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: min(1.7vw, 2.4vh);
+        --mobile-cube-unit: min(2.45vw, 3.45vh);
         --mobile-cube-face: calc(var(--mobile-cube-unit) * 4);
         --mobile-cube-half: calc(var(--mobile-cube-unit) * 2);
         display: block !important;
-        flex: 1 1 50%;
-        max-width: 50%;
-        width: 100%;
-        height: min(64vh, 48vw);
-        min-height: 38vh;
-        margin: 0;
-        position: relative;
+        position: absolute;
+        inset: 0;
         z-index: 1;
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        margin: 0;
         overflow: visible;
         perspective: 32em;
         transform: none;
@@ -2214,11 +2221,19 @@ spline-viewer:active {
 
     .mobile-hero-cube .mobile-cube-assembly {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 58%;
+        left: 72%;
         font-size: var(--mobile-cube-unit);
         transform-style: preserve-3d;
         transform: rotateX(-34deg) rotateY(-45deg);
+    }
+
+    .mobile-hero-cube .mobile-cube-comp--inner {
+        animation: mobileCubeRi 2s ease-in-out infinite;
+    }
+
+    .mobile-hero-cube .mobile-cube-comp--outer {
+        animation: mobileCubeRo 2s ease-in-out infinite;
     }
 
     .mobile-hero-cube .mobile-cube-comp,
@@ -2258,6 +2273,10 @@ spline-viewer:active {
     .mobile-hero-cube .mobile-cube-pos:nth-child(7) { transform: scale3d(-1, -1, 1) translate3d(4em, 4em, 4em); }
     .mobile-hero-cube .mobile-cube-pos:nth-child(8) { transform: scale3d(-1, -1, -1) translate3d(4em, 4em, 4em); }
 
+    .mobile-hero-cube .mobile-cube-pos .mobile-cube {
+        animation: mobileCubeMove 2s ease-out infinite;
+    }
+
     .mobile-hero-cube .mobile-cube span {
         width: 4em;
         height: 4em;
@@ -2277,19 +2296,43 @@ spline-viewer:active {
     .mobile-hero-cube .mobile-cube span:nth-child(4) { background: #0e0e0e; transform: rotateY(270deg) translateZ(2em); }
     .mobile-hero-cube .mobile-cube span:nth-child(5) { background: #1a1208; transform: rotateX(90deg) translateZ(2em); }
     .mobile-hero-cube .mobile-cube span:nth-child(6) { background: #0a0a0a; transform: rotateX(-90deg) translateZ(2em); }
+
+    @keyframes mobileCubeRi {
+        0%, 20% { transform: rotateY(-0.5turn); }
+        50% { transform: none; }
+        80%, 100% { transform: rotateX(-0.5turn); }
+    }
+
+    @keyframes mobileCubeRo {
+        0%, 35% { transform: rotate(-0.5turn); }
+        65%, 100% { transform: none; }
+    }
+
+    @keyframes mobileCubeMove {
+        0%, 5%, 95%, 100% { transform: none; }
+        15% { transform: translate3d(0, 4em, 0); }
+        25% { transform: translate3d(0, 4em, 4em); }
+        35%, 65% { transform: translate3d(4em, 4em, 4em); }
+        75% { transform: translate3d(4em, 0, 4em); }
+        85% { transform: translate3d(4em, 0, 0); }
+    }
 }
 
 @media (max-width: 767px) {
     .mobile-hero-cube.ai-cube-assembly {
-        --mobile-cube-unit: min(3.7vw, 1.9vh);
-        flex: 0 0 auto;
+        --mobile-cube-unit: min(4.35vw, 2.35vh);
         max-width: 100%;
         width: 100%;
-        height: 34vh;
-        min-height: 24vh;
-        margin: 4vh auto 0;
-        position: relative;
-        inset: auto;
-        order: 2;
+        height: 100%;
+        min-height: 0;
+        margin: 0;
+        position: absolute;
+        inset: 0;
+        order: initial;
+    }
+
+    .mobile-hero-cube .mobile-cube-assembly {
+        top: 72%;
+        left: 50%;
     }
 }
