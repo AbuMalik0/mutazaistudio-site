@@ -347,7 +347,7 @@ body.mobile-menu-open {
     max-width: 50%;
     width: 50%;
     min-width: 0;
-    height: clamp(32rem, 58vh, 38rem);
+    height: clamp(33rem, 62vh, 42rem);
     min-height: 0;
     overflow: hidden;
 }
@@ -356,7 +356,7 @@ spline-viewer {
     flex: 0 0 auto;
     width: 115%;
     height: 115%;
-    min-width: 62rem;
+    min-width: 68rem;
     min-height: 115%;
     margin-right: -15%;
     margin-bottom: -15%;
