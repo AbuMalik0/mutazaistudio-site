@@ -352,11 +352,13 @@ body.mobile-menu-open {
 }
 
 spline-viewer {
+    flex: 0 0 auto;
     width: 115%;
     height: 115%;
+    min-width: 62vw;
+    min-height: 72vh;
     margin-right: -15%;
     margin-bottom: -15%;
-    min-height: 600px;
     outline: none;
     cursor: grab;
     background: transparent !important;
