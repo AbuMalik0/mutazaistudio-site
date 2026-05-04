@@ -283,7 +283,7 @@ body.mobile-menu-open {
     [dir="rtl"] .hero-title {
         width: max-content;
         max-width: 50vw;
-        font-size: clamp(2.4rem, 4.2vw, 5rem);
+        font-size: clamp(3rem, 4.8vw, 5.8rem);
         line-height: 1.25 !important;
         letter-spacing: 0;
     }
