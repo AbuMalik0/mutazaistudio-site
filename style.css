@@ -318,25 +318,25 @@ body.mobile-menu-open {
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     max-width: 50%;
     width: 100%;
-    min-height: 600px;
+    height: min(72vh, 46vw);
+    min-height: 52vh;
     overflow: hidden;
 }
 
 spline-viewer {
+    display: block;
     width: 100%;
-    height: 100%;
-    min-height: 600px;
+    height: 108%;
+    margin-bottom: -8%;
     outline: none;
     cursor: grab;
     background: transparent !important;
     mix-blend-mode: screen;
     isolation: isolate;
-    transform: scale(1.35) translateY(5%);
-    transform-origin: center center;
 }
 
 spline-viewer:active {
@@ -1131,6 +1131,9 @@ spline-viewer:active {
     }
     .hero-section {
         padding: 0 3rem;
+    }
+    .hero-visual {
+        display: none;
     }
 }
 
