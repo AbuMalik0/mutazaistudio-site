@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>من نحن — Mutaz AI Studio</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root {
     --bg: #000000;
@@ -53,7 +54,7 @@
   }
 
   .hero::after {
-    content: '';
+    content: none;
     position: absolute;
     top: 20%;
     left: -200px;
@@ -93,14 +94,17 @@
   .hero-title {
     font-size: clamp(36px, 7vw, 72px);
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.18;
     margin-bottom: 24px;
     animation: fadeDown 0.8s 0.1s ease both;
+    overflow: visible;
   }
 
   .hero-title .line1 { display: block; color: var(--text); }
   .hero-title .line2 {
     display: block;
+    line-height: 1.24;
+    padding-bottom: 0.08em;
     background: linear-gradient(90deg, var(--cyan), var(--purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -142,6 +146,25 @@
     font-weight: 600;
   }
 
+  .sa-flag {
+    display: inline-block;
+    width: 44px;
+    height: 30px;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.18), 0 6px 16px rgba(0,108,53,0.22);
+    vertical-align: middle;
+    overflow: hidden;
+  }
+
+  .sa-flag::before {
+    content: none;
+  }
+
+  .sa-flag::after {
+    content: none;
+  }
+
   /* ══════════════════════════════════
      STORY
   ══════════════════════════════════ */
@@ -151,7 +174,7 @@
   }
 
   .story::before {
-    content: '';
+    content: none;
     position: absolute;
     top: 0; right: -100px;
     width: 500px; height: 500px;
@@ -355,11 +378,12 @@
   .service-arrow {
     color: var(--cyan);
     font-size: 24px;
+    display: none;
     opacity: 0;
     transition: opacity 0.3s;
   }
 
-  .service-row:hover .service-arrow { opacity: 1; }
+  .service-row:hover .service-arrow { opacity: 0; }
 
   /* ══════════════════════════════════
      CTA
@@ -371,7 +395,7 @@
   }
 
   .cta-section::before {
-    content: '';
+    content: none;
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -442,6 +466,29 @@
 </style>
 </head>
 <body>
+
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Mutaz AI Studio Logo" class="logo-img">
+        </div>
+        <span class="brand-name">Mutaz AI Studio</span>
+    </div>
+
+    <div class="nav-center">
+        <a href="index.html#home" class="nav-link">الرئيسية</a>
+        <a href="index.html#services" class="nav-link">خدماتنا</a>
+        <a href="index.html#testimonials" class="nav-link">آراء العملاء</a>
+        <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+    </div>
+
+    <div class="nav-right">
+        <button class="toggle-btn" onclick="toggleSubpageLang()">
+            <span class="lang-text">EN</span>
+            <i class="fa-solid fa-globe"></i>
+        </button>
+    </div>
+</nav>
 
 <!-- Top Controls -->
 <div class="top-controls">
@@ -554,6 +601,309 @@ function toggleSubpageLang() {
 }
 </style>
 
+<style>
+.top-controls { display: none !important; }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 85px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+}
+.nav-left,
+.nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.nav-left { justify-content: flex-start; }
+.nav-right {
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.brand-name {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-left: 0.75rem;
+    line-height: 1;
+    margin-top: 4px;
+}
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen;
+}
+.nav-center {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+    gap: 2rem;
+}
+.nav-center a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.nav-center a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 1px #ffffff;
+}
+.nav-center a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF8000;
+    transition: width 0.3s ease;
+}
+.nav-center a:hover::after { width: 100%; }
+.toggle-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    width: 76px;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+.toggle-btn .lang-text {
+    width: 20px;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+.toggle-btn i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 16px;
+}
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    margin: 64px 0 0;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000000;
+    z-index: 100;
+}
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+.social-row {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+    direction: inherit;
+}
+.social-primary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+[dir="rtl"] .social-primary { align-items: flex-end; }
+.social-title {
+    display: block;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: start;
+}
+[dir="rtl"] .social-title {
+    align-self: flex-end;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: right;
+    width: 100%;
+    letter-spacing: 0;
+}
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+.social-links a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    overflow: visible;
+    text-decoration: none;
+}
+.social-links a i,
+.wa-link i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.social-links a[aria-label="TikTok"] i {
+    font-size: 1.36rem;
+    transform: translateY(1px);
+}
+.social-links a:hover {
+    color: #FF8000;
+    transform: translateY(-3px);
+}
+.social-divider {
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+    align-self: flex-end;
+    margin-bottom: 2px;
+}
+.wa-link {
+    color: #25D366 !important;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+.wa-link:hover {
+    color: #1ebe5d !important;
+    transform: translateY(-3px) scale(1.1);
+}
+.footer-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.copyright {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+.footer-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover { color: #ffffff; }
+@media (max-width: 768px) {
+    .navbar {
+        height: 72px;
+        padding: 0 1.1rem;
+    }
+    .nav-center,
+    .nav-right { display: none; }
+    .logo-img { height: 46px; }
+    .brand-name {
+        font-size: 0.95rem;
+        max-width: none;
+        white-space: nowrap;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 1.15rem;
+        margin: 36px 0 0;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        height: auto;
+    }
+    .footer-left {
+        order: 1;
+        align-items: center;
+        width: 100%;
+    }
+    .social-row {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .social-primary { align-items: flex-start; }
+    [dir="rtl"] .social-primary { align-items: flex-end; }
+    .social-title {
+        text-align: start;
+        width: auto;
+    }
+    .social-links {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .footer-right {
+        order: 2;
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .footer-center {
+        order: 3;
+        justify-content: center;
+        width: 100%;
+    }
+}
+</style>
+
 
 
 
@@ -579,7 +929,7 @@ function toggleSubpageLang() {
         <span class="stat-label">حلول مخصصة</span>
       </div>
       <div class="stat">
-        <span class="stat-num">🇸🇦</span>
+        <img class="stat-num sa-flag" src="sa-flag.svg" alt="علم السعودية">
         <span class="stat-label">المملكة العربية السعودية</span>
       </div>
     </div>
@@ -645,7 +995,7 @@ function toggleSubpageLang() {
         <p>نتعامل مع كل عميل كشريك استراتيجي — نفهم أعماله، نتعلم من تحدياته، ونبني معه على المدى البعيد.</p>
       </div>
       <div class="phil-card">
-        <span class="phil-icon">🇸🇦</span>
+        <img class="phil-icon sa-flag" src="sa-flag.svg" alt="علم السعودية">
         <h3>فهم السوق المحلي</h3>
         <p>نفهم البيئة السعودية — اللغة، الثقافة، الأنظمة، وطبيعة القرار التجاري. هذا ما يفرقنا.</p>
       </div>
@@ -662,33 +1012,33 @@ function toggleSubpageLang() {
     <div class="services-list">
       <div class="service-row">
         <span class="service-num">01</span>
-        <span class="service-name">استشارات الذكاء الاصطناعي</span>
-        <span class="service-desc">تشخيص وحلول مخصصة</span>
-        <span class="service-arrow">←</span>
+        <span class="service-name">إنتاج الفيديوهات بالذكاء الاصطناعي</span>
+        <span class="service-desc">إعلانات ومحتوى ترويجي</span>
       </div>
       <div class="service-row">
         <span class="service-num">02</span>
-        <span class="service-name">تحليل البيانات الاحترافي</span>
-        <span class="service-desc">لوحات تحكم وتقارير ذكية</span>
-        <span class="service-arrow">←</span>
+        <span class="service-name">تصوير المنتجات بالذكاء الاصطناعي</span>
+        <span class="service-desc">صور بجودة استوديو احترافي</span>
       </div>
       <div class="service-row">
         <span class="service-num">03</span>
-        <span class="service-name">أتمتة سير العمل</span>
-        <span class="service-desc">n8n وتكامل الأنظمة</span>
-        <span class="service-arrow">←</span>
+        <span class="service-name">التعليق الصوتي بالذكاء الاصطناعي</span>
+        <span class="service-desc">أصوات عربية وإنجليزية طبيعية</span>
       </div>
       <div class="service-row">
         <span class="service-num">04</span>
-        <span class="service-name">إدارة حسابات التواصل الاجتماعي</span>
-        <span class="service-desc">محتوى مدعوم بالذكاء الاصطناعي</span>
-        <span class="service-arrow">←</span>
+        <span class="service-name">أتمتة المحتوى</span>
+        <span class="service-desc">إنتاج وإدارة ونشر المحتوى</span>
       </div>
       <div class="service-row">
         <span class="service-num">05</span>
-        <span class="service-name">إنتاج المحتوى المرئي</span>
-        <span class="service-desc">فيديو وتصاميم بالذكاء الاصطناعي</span>
-        <span class="service-arrow">←</span>
+        <span class="service-name">أتمتة العمليات التجارية</span>
+        <span class="service-desc">تبسيط التشغيل وتقليل العمل اليدوي</span>
+      </div>
+      <div class="service-row">
+        <span class="service-num">06</span>
+        <span class="service-name">تصميم المواقع والهويات الرقمية</span>
+        <span class="service-desc">مواقع وهويات بمعيار عالمي</span>
       </div>
     </div>
   </div>
@@ -699,9 +1049,37 @@ function toggleSubpageLang() {
   <div class="container">
     <h2>جاهز تبدأ مشروعك؟</h2>
     <p>أخبرنا عن تحديك — وسنعمل معك على الحل المناسب تماماً.</p>
-    <a href="#contact" class="cta-btn">تواصل معنا ←</a>
+    <a href="#contact" class="cta-btn">تواصل معنا</a>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="footer-left">
+    <div class="social-row">
+      <div class="social-primary">
+        <span class="social-title">تابعنا</span>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <span class="social-divider"></span>
+      <a href="#" class="wa-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </div>
+  <div class="footer-center">
+    <span class="copyright">© 2026 Mutaz AI Studio. جميع الحقوق محفوظة.</span>
+  </div>
+  <div class="footer-right">
+    <div class="footer-links">
+      <a href="about-us.html">من نحن</a>
+      <a href="terms-final-ar.html">الشروط والأحكام</a>
+    </div>
+  </div>
+</footer>
 
 <script>
   // Intersection Observer for timeline animations

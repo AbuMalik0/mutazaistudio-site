@@ -176,15 +176,39 @@ body.mobile-menu-open {
     background: transparent;
     border: 1px solid var(--border-color);
     color: var(--text-color);
-    padding: 0.5rem 1rem;
+    width: 76px;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 0;
     border-radius: 20px;
     cursor: pointer;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     font-size: 0.85rem;
     font-family: inherit;
     transition: all 0.3s ease;
+}
+
+.toggle-btn .lang-text {
+    width: 20px;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.toggle-btn i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 16px;
 }
 
 .toggle-btn:hover {
@@ -519,16 +543,14 @@ spline-viewer:active {
 
 .services-badge {
     color: var(--primary-color);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1rem;
 }
 
-/* Arabic: Cairo font renders smaller, boost it */
 [dir="rtl"] .services-badge {
-    font-size: 1.5rem;
     letter-spacing: 0;
 }
 
@@ -644,25 +666,73 @@ spline-viewer:active {
     flex: 1;
 }
 
+.social-row {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+    direction: inherit;
+}
+
+.social-primary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+[dir="rtl"] .social-primary {
+    align-items: flex-end;
+}
+
 .social-title {
+    display: block;
     font-size: 0.9rem;
     color: var(--text-muted);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: start;
+}
+
+[dir="rtl"] .social-title {
+    align-self: flex-end;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: right;
+    width: 100%;
+    letter-spacing: 0;
 }
 
 .social-links {
     display: flex;
     gap: 1.25rem;
+    align-items: center;
 }
 
 .social-links a {
     color: var(--text-color);
     font-size: 1.3rem;
     transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    line-height: 1;
+    overflow: visible;
+}
+
+.social-links a i,
+.wa-link i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.social-links a[aria-label="TikTok"] i {
+    font-size: 1.36rem;
+    transform: translateY(1px);
 }
 
 .social-links a:hover {
@@ -675,11 +745,20 @@ spline-viewer:active {
     height: 20px;
     background: var(--border-color);
     margin: 0 5px;
-    align-self: center;
+    align-self: flex-end;
+    margin-bottom: 2px;
 }
 
 .wa-link {
     color: #25D366 !important; /* WhatsApp Green */
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .wa-link:hover {
@@ -741,7 +820,7 @@ spline-viewer:active {
 
 .testimonials-badge {
     color: var(--primary-color);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -749,12 +828,11 @@ spline-viewer:active {
 }
 
 [dir="rtl"] .testimonials-badge {
-    font-size: 1.5rem;
     letter-spacing: 0;
 }
 
 .testimonials-title {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
     color: var(--text-color);
     margin-bottom: 0;
@@ -768,7 +846,6 @@ spline-viewer:active {
 .t-title-orange { color: var(--primary-color); }
 
 [dir="rtl"] .testimonials-title {
-    font-size: 3.2rem;
     letter-spacing: 0;
 }
 
@@ -976,6 +1053,12 @@ spline-viewer:active {
     transform: scale(1.06);
 }
 
+@media (min-width: 769px) {
+    [dir="ltr"] .testimonials-section {
+        padding-bottom: 6rem;
+    }
+}
+
 @keyframes featuredCardPulse {
     0%, 100% {
         box-shadow: 0 10px 0 4px rgba(255, 255, 255, 0.08), 0 0 0 rgba(255, 128, 0, 0);
@@ -1006,7 +1089,7 @@ spline-viewer:active {
 .contact-section {
     position: relative;
     scroll-margin-top: 85px;
-    padding: 6rem 3rem;
+    padding: 5.25rem 3rem 3rem;
     background: #000000;
     border-top: 1px solid var(--border-color);
     overflow: hidden;
@@ -1025,7 +1108,7 @@ spline-viewer:active {
 
 .contact-badge {
     color: var(--primary-color);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1150,7 +1233,6 @@ spline-viewer:active {
 }
 
 [dir="rtl"] .contact-badge {
-    font-size: 1.5rem;
     letter-spacing: 0;
 }
 
@@ -1748,14 +1830,27 @@ spline-viewer:active {
         width: 100%;
     }
 
+    .social-row {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .social-primary {
+        align-items: flex-start;
+    }
+
+    [dir="rtl"] .social-primary {
+        align-items: flex-end;
+    }
+
     .social-title {
-        text-align: center;
-        width: 100%;
+        text-align: start;
+        width: auto;
     }
 
     .social-links {
         justify-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     .footer-right {

@@ -208,21 +208,25 @@
 </head>
 <body>
 
-<nav class="terms-navbar">
-    <a class="terms-brand" href="index.html#home" aria-label="Mutaz AI Studio">
-        <img src="logo.png" alt="Mutaz AI Studio Logo">
-        <span>Mutaz AI Studio</span>
-    </a>
-    <div class="terms-nav-links">
-        <a href="index.html#home">الرئيسية</a>
-        <a href="index.html#services">خدماتنا</a>
-        <a href="index.html#testimonials">آراء العملاء</a>
-        <a href="index.html#contact">تواصل معنا</a>
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Mutaz AI Studio Logo" class="logo-img">
+        </div>
+        <span class="brand-name">Mutaz AI Studio</span>
     </div>
-    <button class="lang-btn" onclick="toggleSubpageLang()">
-        <span class="lang-text">EN</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-    </button>
+    <div class="nav-center">
+        <a href="index.html#home" class="nav-link">الرئيسية</a>
+        <a href="index.html#services" class="nav-link">خدماتنا</a>
+        <a href="index.html#testimonials" class="nav-link">آراء العملاء</a>
+        <a href="index.html#contact" class="nav-link">تواصل معنا</a>
+    </div>
+    <div class="nav-right">
+        <button class="toggle-btn" onclick="toggleSubpageLang()">
+            <span class="lang-text">EN</span>
+            <i class="fa-solid fa-globe"></i>
+        </button>
+    </div>
 </nav>
 <script>
 function toggleSubpageLang() {
@@ -253,7 +257,7 @@ function toggleSubpageLang() {
     justify-content: space-between;
     gap: 1.5rem;
     background: #000000;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 9999;
 }
 .terms-brand {
@@ -318,6 +322,361 @@ function toggleSubpageLang() {
 .lang-btn:hover {
     background: rgba(255,255,255,0.08);
     border-color: var(--text);
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 85px;
+    padding: 0 3rem;
+    box-sizing: border-box;
+}
+.nav-left,
+.nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.nav-left { justify-content: flex-start; }
+.nav-right {
+    justify-content: flex-end;
+    gap: 1rem;
+}
+.brand-name {
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    margin-left: 0.75rem;
+    line-height: 1;
+    margin-top: 4px;
+}
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    mix-blend-mode: screen;
+}
+.nav-center {
+    display: flex;
+    justify-content: center;
+    flex: 2;
+    gap: 2rem;
+}
+.nav-center a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.nav-center a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 1px #ffffff;
+}
+.nav-center a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF8000;
+    transition: width 0.3s ease;
+}
+.nav-center a:hover::after { width: 100%; }
+.toggle-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    width: 76px;
+    height: 36px;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+.toggle-btn .lang-text {
+    width: 20px;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+.toggle-btn i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 16px;
+}
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #ffffff;
+}
+@media (max-width: 768px) {
+    .navbar {
+        height: 72px;
+        padding: 0 1.1rem;
+    }
+    .nav-center,
+    .nav-right {
+        display: none;
+    }
+    .logo-img { height: 46px; }
+    .brand-name {
+        font-size: 0.95rem;
+        max-width: none;
+        white-space: nowrap;
+    }
+    .footer {
+        flex-direction: column;
+        gap: 1.15rem;
+        margin: 36px -16px 0;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        height: auto;
+    }
+    .footer-left {
+        order: 1;
+        align-items: center;
+        width: 100%;
+    }
+    .social-row {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .social-primary {
+        align-items: flex-start;
+    }
+    [dir="rtl"] .social-primary {
+        align-items: flex-end;
+    }
+    .social-title {
+        text-align: start;
+        width: auto;
+    }
+    .social-links {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .footer-right {
+        order: 2;
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .footer-center {
+        order: 3;
+        justify-content: center;
+        width: 100%;
+    }
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+    margin: 64px -24px 0;
+    padding: 0 3rem;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000000;
+    z-index: 100;
+}
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+.social-row {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 1.25rem;
+    direction: inherit;
+}
+.social-primary {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+[dir="rtl"] .social-primary {
+    align-items: flex-end;
+}
+.social-title {
+    display: block;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: start;
+}
+[dir="rtl"] .social-title {
+    align-self: flex-end;
+    font-size: 1rem;
+    font-weight: 800;
+    text-align: right;
+    width: 100%;
+    letter-spacing: 0;
+}
+.social-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+.social-links a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    overflow: visible;
+}
+.social-links a i,
+.wa-link i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+.social-links a[aria-label="TikTok"] i {
+    font-size: 1.36rem;
+    transform: translateY(1px);
+}
+.social-links a:hover {
+    color: #FF8000;
+    transform: translateY(-3px);
+}
+.social-divider {
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 5px;
+    align-self: flex-end;
+    margin-bottom: 2px;
+}
+.wa-link {
+    color: #25D366 !important;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.wa-link:hover {
+    color: #1ebe5d !important;
+    transform: translateY(-3px) scale(1.1);
+}
+.footer-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.copyright {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+.footer-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #ffffff;
+}
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        gap: 1.15rem;
+        margin: 36px -16px 0;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        height: auto;
+    }
+    .footer-left {
+        order: 1;
+        align-items: center;
+        width: 100%;
+    }
+    .social-row {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .social-primary {
+        align-items: flex-start;
+    }
+    [dir="rtl"] .social-primary {
+        align-items: flex-end;
+    }
+    .social-title {
+        text-align: start;
+        width: auto;
+    }
+    .social-links {
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    .footer-right {
+        order: 2;
+        justify-content: center;
+        width: 100%;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+    .footer-center {
+        order: 3;
+        justify-content: center;
+        width: 100%;
+    }
 }
 .terms-footer {
     min-height: 85px;
@@ -418,7 +777,6 @@ function toggleSubpageLang() {
 <div class="container">
 
   <div class="doc-header">
-    <div class="brand">Mutaz AI Studio</div>
     <h1>الشروط والأحكام</h1>
     <div class="meta">تاريخ السريان: [التاريخ] &nbsp;·&nbsp; آخر تحديث: [التاريخ] &nbsp;·&nbsp; المملكة العربية السعودية</div>
   </div>
@@ -764,20 +1122,31 @@ function toggleSubpageLang() {
 
 </div>
 
-<footer class="terms-footer">
-  <div class="terms-social">
-    <span>تابعنا</span>
+<footer class="footer">
+  <div class="footer-left">
+    <div class="social-row">
+      <div class="social-primary">
+        <span class="social-title">تابعنا</span>
+        <div class="social-links">
     <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
     <a href="https://www.youtube.com/@MutazAIStudio" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
     <a href="https://www.tiktok.com/@mutazaistudio" aria-label="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
     <a href="https://x.com/MutazAIStudio" aria-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
     <a href="https://www.instagram.com/mutazaistudio/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="social-divider"></div>
     <a href="https://wa.me/966530536631" aria-label="WhatsApp" class="wa-link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
   </div>
-  <span class="terms-copyright">© 2026 Mutaz AI Studio. جميع الحقوق محفوظة.</span>
-  <div class="terms-footer-links">
+  <div class="footer-center">
+    <span class="copyright">© 2026 Mutaz AI Studio. جميع الحقوق محفوظة.</span>
+  </div>
+  <div class="footer-right">
+    <div class="footer-links">
     <a href="about-us.html">من نحن</a>
     <a href="terms-final-ar.html">الشروط والأحكام</a>
+    </div>
   </div>
 </footer>
 </body>
