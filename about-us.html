@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>من نحن — Mutaz AI Studio</title>
+<title>Mutaz AI Studio</title>
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -80,6 +82,11 @@
     margin-bottom: 32px;
     width: fit-content;
     animation: fadeDown 0.8s ease both;
+  }
+
+  [dir="rtl"] .hero-tag {
+    font-weight: 800;
+    letter-spacing: 0;
   }
 
   .hero-tag::before {
@@ -488,7 +495,25 @@
             <i class="fa-solid fa-globe"></i>
         </button>
     </div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-panel">
+        <a href="index.html#home" class="mobile-nav-link">الرئيسية</a>
+        <a href="index.html#services" class="mobile-nav-link">خدماتنا</a>
+        <a href="index.html#testimonials" class="mobile-nav-link">آراء العملاء</a>
+        <a href="index.html#contact" class="mobile-nav-link">تواصل معنا</a>
+        <button class="mobile-lang-toggle" type="button" onclick="toggleSubpageLang()">
+            <span>EN</span>
+            <i class="fa-solid fa-globe"></i>
+        </button>
+    </div>
+</div>
 
 <!-- Top Controls -->
 <div class="top-controls">
@@ -513,6 +538,28 @@ function toggleSubpageLang() {
     localStorage.setItem('lang', isEn ? 'ar' : 'en');
     window.location.href = newPath;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenuToggle || !mobileMenu) return;
+
+    const setMobileMenu = (open) => {
+        mobileMenuToggle.classList.toggle('is-open', open);
+        mobileMenu.classList.toggle('is-open', open);
+        mobileMenuToggle.setAttribute('aria-expanded', String(open));
+        mobileMenu.setAttribute('aria-hidden', String(!open));
+        document.body.classList.toggle('mobile-menu-open', open);
+    };
+
+    mobileMenuToggle.addEventListener('click', () => {
+        setMobileMenu(!mobileMenu.classList.contains('is-open'));
+    });
+
+    mobileMenu.querySelectorAll('a, button').forEach((item) => {
+        item.addEventListener('click', () => setMobileMenu(false));
+    });
+});
 </script>
 <style>
 .top-controls {
@@ -569,7 +616,7 @@ function toggleSubpageLang() {
     .container { padding: 0 18px; }
     .container { max-width: 390px; }
     .hero { min-height: auto; padding: 86px 0 42px; }
-    .hero-tag { font-size: 12px; letter-spacing: 1px; padding: 5px 12px; margin-bottom: 18px; }
+    .hero-tag { font-size: 12px; letter-spacing: 0; padding: 5px 12px; margin-bottom: 18px; }
     .hero-title { font-size: clamp(28px, 8vw, 34px); line-height: 1.25; margin-bottom: 14px; }
     .hero-sub { font-size: 14px; line-height: 1.75; margin-bottom: 26px; }
     .hero-stats { gap: 14px; }
@@ -903,7 +950,7 @@ function toggleSubpageLang() {
     }
 }
 </style>
-
+<link rel="stylesheet" href="subpage-nav.css?v=7">
 
 
 
@@ -1049,7 +1096,7 @@ function toggleSubpageLang() {
   <div class="container">
     <h2>جاهز تبدأ مشروعك؟</h2>
     <p>أخبرنا عن تحديك — وسنعمل معك على الحل المناسب تماماً.</p>
-    <a href="#contact" class="cta-btn">تواصل معنا</a>
+    <a href="index.html#contact" class="cta-btn">تواصل معنا</a>
   </div>
 </section>
 
@@ -1059,15 +1106,15 @@ function toggleSubpageLang() {
       <div class="social-primary">
         <span class="social-title">تابعنا</span>
         <div class="social-links">
-          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/company/mutazaistudio/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@MutazAIStudio" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@mutazaistudio" aria-label="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://x.com/MutazAIStudio" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/mutazaistudio/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
       <span class="social-divider"></span>
-      <a href="#" class="wa-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://wa.me/966530536631" class="wa-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
   </div>
   <div class="footer-center">
@@ -1076,6 +1123,7 @@ function toggleSubpageLang() {
   <div class="footer-right">
     <div class="footer-links">
       <a href="about-us.html">من نحن</a>
+      <a href="credentials.html">الاعتمادات</a>
       <a href="terms-final-ar.html">الشروط والأحكام</a>
     </div>
   </div>

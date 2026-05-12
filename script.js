@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cta:          "Book your free consultation",
             about:        "About Us",
             terms:        "Terms & Conditions",
+            credentialsFooter: "Credentials",
             followUs:     "Follow Us",
             copyright:    "© 2026 Mutaz AI Studio. All rights reserved.",
             srvBadge:     "Our Services",
@@ -66,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cta:          "احجز استشارتك مجاناً",
             about:        "من نحن",
             terms:        "الشروط والأحكام",
+            credentialsFooter: "الاعتمادات",
             followUs:     "تابعنا",
             copyright:    "© 2026 Mutaz AI Studio. جميع الحقوق محفوظة.",
             srvBadge:     "خدماتنا",
@@ -164,9 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileLangToggle.addEventListener('click', () => langToggleBtn.click());
     }
 
-    let lastMobileState = window.innerWidth <= 768;
+    let lastMobileState = window.innerWidth <= 767;
     window.addEventListener('resize', () => {
-        const isMobileState = window.innerWidth <= 768;
+        const isMobileState = window.innerWidth <= 767;
         if (isMobileState !== lastMobileState) {
             lastMobileState = isMobileState;
             applyLanguage(currentLang);
@@ -201,7 +203,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             const source = document.getElementById(link.dataset.navSource);
-            if (source) link.textContent = source.textContent;
+            if (source) {
+                link.textContent = source.textContent;
+                link.setAttribute('href', source.getAttribute('href'));
+            }
         });
 
         // Status badge
@@ -219,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroTitle.style.paddingBottom = '0.2em';
                 
                 // Break title naturally in mobile as requested: وكالة حلول / الذكاء الاصطناعي
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 767) {
                     heroTitle.innerHTML = "<span>وكالة <span class='text-accent'>حلول</span></span><span class='text-accent'>الذكاء الاصطناعي</span>";
                 }
             } else {
@@ -227,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroTitle.style.lineHeight  = '1.1';
                 heroTitle.style.letterSpacing = '-2px';
                 heroTitle.style.paddingBottom = '0';
-                if (window.innerWidth <= 768) {
+                if (window.innerWidth <= 767) {
                     heroTitle.innerHTML = "<span>THE <span class='text-accent'>AI</span></span><span class='text-accent'>SOLUTIONS</span><span>AGENCY</span>";
                     heroTitle.style.letterSpacing = '0';
                 }
@@ -237,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hero subtitle
         const heroSub = document.querySelector('.hero-subtitle');
         if (heroSub) {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 767) {
                 heroSub.innerHTML = isAr
                     ? "نعيد تعريف الكفاءة التشغيلية.<br>نقلل التكاليف ووقت التنفيذ.<br>ونرفع جودة المخرجات."
                     : "Redefining operational efficiency.<br>AI agents reduce time and overhead.<br>And maximize output quality.";
@@ -256,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Footer links
         const footerAbout = document.getElementById('footer-about');
         const footerTerms = document.getElementById('footer-terms');
+        const footerCredentials = document.getElementById('footer-credentials');
         if (footerAbout) {
             footerAbout.textContent = t.about;
             footerAbout.href = isAr ? 'about-us.html' : 'about-us-en.html';
@@ -263,6 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (footerTerms) {
             footerTerms.textContent = t.terms;
             footerTerms.href = isAr ? 'terms-final-ar.html' : 'terms-final-en.html';
+        }
+        if (footerCredentials) {
+            footerCredentials.textContent = t.credentialsFooter;
+            footerCredentials.href = isAr ? 'credentials.html' : 'credentials-en.html';
         }
 
         const socialTitle = document.getElementById('social-title');
@@ -276,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const srvDesc = document.getElementById('services-desc');
         if (srvBadge) srvBadge.textContent = t.srvBadge;
         if (srvTitle) {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 767) {
                 srvTitle.innerHTML = isAr ? "كل ما تحتاجه لتوسيع<br>نطاق أعمالك" : "Everything you need<br>to scale";
             } else {
                 srvTitle.textContent = t.srvTitle;
@@ -414,12 +424,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 width: ${cfg.w}px;
             `;
 
+            const authorName = isRtl() ? d.ar_name : d.name;
+
             card.innerHTML = `
                 <span class="t-card-num">#${cardNum}</span>
                 <p class="t-card-quote">"${isRtl() ? d.ar_quote : d.quote}"</p>
                 <div class="t-card-author">
-                    <p class="t-card-name">${isRtl() ? d.ar_name : d.name}</p>
-                    <p class="t-card-role">${isRtl() ? d.ar_role : d.role}</p>
+                    <p class="t-card-role">${authorName}</p>
                 </div>
             `;
 

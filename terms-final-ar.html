@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الشروط والأحكام — Mutaz AI Studio</title>
+<title>Mutaz AI Studio</title>
+<link rel="icon" type="image/png" href="favicon.png?v=2">
+<link rel="apple-touch-icon" href="favicon.png?v=2">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -227,7 +229,24 @@
             <i class="fa-solid fa-globe"></i>
         </button>
     </div>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-panel">
+        <a href="index.html#home" class="mobile-nav-link">الرئيسية</a>
+        <a href="index.html#services" class="mobile-nav-link">خدماتنا</a>
+        <a href="index.html#testimonials" class="mobile-nav-link">آراء العملاء</a>
+        <a href="index.html#contact" class="mobile-nav-link">تواصل معنا</a>
+        <button class="mobile-lang-toggle" type="button" onclick="toggleSubpageLang()">
+            <span>EN</span>
+            <i class="fa-solid fa-globe"></i>
+        </button>
+    </div>
+</div>
 <script>
 function toggleSubpageLang() {
     const currentPath = window.location.pathname;
@@ -243,6 +262,28 @@ function toggleSubpageLang() {
     localStorage.setItem('lang', isEn ? 'ar' : 'en');
     window.location.href = newPath;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!mobileMenuToggle || !mobileMenu) return;
+
+    const setMobileMenu = (open) => {
+        mobileMenuToggle.classList.toggle('is-open', open);
+        mobileMenu.classList.toggle('is-open', open);
+        mobileMenuToggle.setAttribute('aria-expanded', String(open));
+        mobileMenu.setAttribute('aria-hidden', String(!open));
+        document.body.classList.toggle('mobile-menu-open', open);
+    };
+
+    mobileMenuToggle.addEventListener('click', () => {
+        setMobileMenu(!mobileMenu.classList.contains('is-open'));
+    });
+
+    mobileMenu.querySelectorAll('a, button').forEach((item) => {
+        item.addEventListener('click', () => setMobileMenu(false));
+    });
+});
 </script>
 <style>
 .terms-navbar {
@@ -770,7 +811,7 @@ function toggleSubpageLang() {
     .doc-footer p { font-size: 13px; }
 }
 </style>
-
+<link rel="stylesheet" href="subpage-nav.css?v=7">
 
 
 
@@ -778,7 +819,7 @@ function toggleSubpageLang() {
 
   <div class="doc-header">
     <h1>الشروط والأحكام</h1>
-    <div class="meta">تاريخ السريان: [التاريخ] &nbsp;·&nbsp; آخر تحديث: [التاريخ] &nbsp;·&nbsp; المملكة العربية السعودية</div>
+    <div class="meta">تاريخ السريان: 24 أبريل 2026 · آخر تحديث: 11 مايو 2026 · المملكة العربية السعودية</div>
   </div>
 
   <div class="intro-box">
@@ -863,13 +904,13 @@ function toggleSubpageLang() {
   <div class="section">
     <div class="section-number">04</div>
     <h2>شروط الدفع</h2>
-    <p>جميع الأسعار مقوَّمة بـ <strong>الريال السعودي (SAR)</strong> وغير شاملة لضريبة القيمة المضافة ما لم يُنص على خلاف ذلك. تُضاف ضريبة القيمة المضافة (15%) حيثما انطبق وفقًا للأنظمة السعودية.</p>
+    <p>جميع الأسعار مقوَّمة بـ الريال السعودي (SAR) وغير شاملة لضريبة القيمة المضافة ما لم يُنص على خلاف ذلك. تُضاف ضريبة القيمة المضافة (15%) حيثما انطبق وفقًا للأنظمة السعودية.</p>
     <ul>
-      <li><strong>الدفعة الأولى:</strong> [X]% من إجمالي قيمة المشروع تُسدَّد قبل بدء العمل</li>
-      <li><strong>الدفعة النهائية:</strong> المبلغ المتبقي يُسدَّد قبل تسليم المخرجات النهائية</li>
-      <li><strong>وسائل الدفع:</strong> مدى، فيزا، ماستركارد، أبل باي عبر رابط دفع آمن</li>
-      <li><strong>موعد السداد:</strong> الفواتير مستحقة خلال 3 أيام عمل من تاريخ الإصدار</li>
-      <li><strong>التأخر في الدفع:</strong> يحق لنا تعليق العمل حتى اكتمال السداد</li>
+      <li>الدفعة الأولى: يُشترط سداد دفعةٍ أولى غير قابلة للاسترداد بنسبة 50% من إجمالي قيمة المشروع قبل الشروع في العمل</li>
+      <li>الدفعة النهائية: المبلغ المتبقي يُسدَّد قبل تسليم المخرجات النهائية</li>
+      <li>وسائل الدفع: مدى، فيزا، ماستركارد، أبل باي عبر رابط دفع آمن</li>
+      <li>موعد السداد: الفواتير مستحقة خلال 3 أيام عمل من تاريخ الإصدار</li>
+      <li>التأخر في الدفع: يحق لنا تعليق العمل حتى اكتمال السداد</li>
     </ul>
     <div class="warning">
       لن يبدأ العمل إلا بعد استلام الدفعة الأولى. ولن تُسلَّم المخرجات النهائية إلا بعد تأكيد اكتمال الدفع الكامل.
@@ -1114,9 +1155,8 @@ function toggleSubpageLang() {
     <h2>التواصل معنا</h2>
     <p>لأي استفسار حول هذه الشروط، يُرجى التواصل معنا:</p>
     <ul>
-      <li><strong>البريد الإلكتروني:</strong> [بريدك الإلكتروني]</li>
-      <li><strong>واتساب:</strong> [رقمك]</li>
-      <li><strong>الموقع الإلكتروني:</strong> [موقعك]</li>
+      <li>البريد الإلكتروني: Info@MutazAIStudio.com</li>
+      <li>واتساب: +966 53 053 6631</li>
     </ul>
   </div>
 
@@ -1128,10 +1168,10 @@ function toggleSubpageLang() {
       <div class="social-primary">
         <span class="social-title">تابعنا</span>
         <div class="social-links">
-    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://www.linkedin.com/company/mutazaistudio/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
     <a href="https://www.youtube.com/@MutazAIStudio" aria-label="YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a>
     <a href="https://www.tiktok.com/@mutazaistudio" aria-label="TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
-    <a href="https://x.com/MutazAIStudio" aria-label="X" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://x.com/MutazAIStudio" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
     <a href="https://www.instagram.com/mutazaistudio/" aria-label="Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
@@ -1145,6 +1185,7 @@ function toggleSubpageLang() {
   <div class="footer-right">
     <div class="footer-links">
     <a href="about-us.html">من نحن</a>
+    <a href="credentials.html">الاعتمادات</a>
     <a href="terms-final-ar.html">الشروط والأحكام</a>
     </div>
   </div>
