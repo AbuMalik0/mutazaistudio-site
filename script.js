@@ -353,17 +353,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     animatedElements.forEach(el => observer.observe(el));
 
+    const contactFeedback = {
+        en: {
+            sending: 'Sending...',
+            error: 'Sorry, the message could not be sent. Please try again.'
+        },
+        ar: {
+            sending: '\u062c\u0627\u0631\u064a \u0627\u0644\u0625\u0631\u0633\u0627\u0644...',
+            error: '\u062a\u0639\u0630\u0631 \u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0631\u0633\u0627\u0644\u0629. \u062d\u0627\u0648\u0644 \u0645\u0631\u0629 \u0623\u062e\u0631\u0649.'
+        }
+    };
+
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (event) => {
+        let isSendingContact = false;
+
+        contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            if (isSendingContact) return;
+
             const note = document.getElementById('contact-form-note');
-            const lang = localStorage.getItem('lang') || currentLang;
+            const lang = (localStorage.getItem('lang') || currentLang) === 'ar' ? 'ar' : 'en';
+            const feedback = contactFeedback[lang];
+            const formData = new FormData(contactForm);
+            const payload = {
+                name: String(formData.get('name') || '').trim(),
+                email: String(formData.get('email') || '').trim(),
+                phone: String(formData.get('phone') || '').trim(),
+                message: String(formData.get('message') || '').trim(),
+                language: lang
+            };
+
+            isSendingContact = true;
             if (note) {
-                note.textContent = translations[lang].contactSent;
-                note.classList.add('is-sent');
+                note.textContent = feedback.sending;
+                note.classList.remove('is-sent');
             }
-            contactForm.reset();
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Contact request failed');
+                }
+
+                if (note) {
+                    note.textContent = translations[lang].contactSent;
+                    note.classList.add('is-sent');
+                }
+                contactForm.reset();
+            } catch (error) {
+                console.error(error);
+                if (note) {
+                    note.textContent = feedback.error;
+                    note.classList.remove('is-sent');
+                }
+            } finally {
+                isSendingContact = false;
+            }
         });
     }
 
